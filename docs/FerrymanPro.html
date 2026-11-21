@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ferryman Pro v1.18</title><style>
+:root{--bg:#12202b;--panel:#203442;--accent:#f4c47d;--aqua:#a4dbe4;--text:#f4f1e6;--muted:#bdcdd0}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#12232f,#101923);color:var(--text);font:15px system-ui,Segoe UI,sans-serif}button,textarea{font:inherit}button{cursor:pointer;border:1px solid #71828a;background:#344d5c;color:white;border-radius:9px;padding:8px 12px}button:hover:not(:disabled){background:#446777}button:disabled{opacity:.35;cursor:default}.primary{background:#ddae68;color:#242322;font-weight:800;border-color:#ffe1a4}.app{max-width:1520px;margin:auto;padding:15px}.head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.head h1{font-size:25px;margin:0;color:#fbd39b}.pill{border:1px solid #577686;border-radius:20px;padding:5px 12px;color:var(--aqua)}.spacer{flex:1}.panel{background:var(--panel);border:1px solid #405a67;border-radius:12px;padding:13px}.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.small{font-size:13px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:12px}.sceneWrap{position:relative;overflow:hidden;border:2px solid #61808d;border-radius:12px;background:#8dc7ca}.sceneScroll{overflow:auto;scrollbar-color:#728f92 #376172;scrollbar-width:auto}.scene{height:440px;min-width:100%;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(#95d0df 0%,#d7e0be 45%,#86b6bb 48%,#5ca0bb 49%,#3f88ab 66%,#226d8c 100%)}.scene:before{content:"";position:absolute;left:0;right:0;top:50%;bottom:0;pointer-events:none;opacity:.42;background:repeating-linear-gradient(180deg,rgba(255,255,255,.16) 0 2px,rgba(255,255,255,0) 2px 16px),radial-gradient(ellipse at 18% 18%,rgba(255,255,255,.16) 0 10%,transparent 11%),radial-gradient(ellipse at 52% 30%,rgba(255,255,255,.12) 0 9%,transparent 10%),radial-gradient(ellipse at 82% 20%,rgba(255,255,255,.14) 0 8%,transparent 9%);background-size:auto,190px 44px,240px 52px,210px 46px;background-repeat:repeat,repeat,repeat,repeat}.scene:after{content:"";position:absolute;left:0;right:0;top:53%;bottom:0;pointer-events:none;opacity:.35;background:repeating-radial-gradient(ellipse at 10% 0%,rgba(255,255,255,.26) 0 1px,rgba(255,255,255,0) 1px 22px),repeating-radial-gradient(ellipse at 70% 0%,rgba(255,255,255,.18) 0 1px,rgba(255,255,255,0) 1px 26px);background-size:230px 40px,280px 46px;background-repeat:repeat}.sun{pointer-events:none;position:absolute;top:26px;left:50%;width:72px;height:72px;border-radius:50%;background:#ffefb1;box-shadow:0 0 45px #ffefb1}.land{position:absolute;bottom:57px;height:112px;width:215px;border:5px solid #71654b;border-radius:17px 17px 0 0;background:repeating-linear-gradient(90deg,#83a66b 0 28px,#78a064 28px 55px);box-shadow:inset 0 -21px #817c5c,0 16px #595b55}.land.here{filter:drop-shadow(0 0 6px #fff2a4)}.pierLabel{position:absolute;top:17px;left:13px;color:#253f3e;background:#f2e4b3d9;border-radius:8px;padding:4px 8px;font-weight:800;font-size:13px;white-space:nowrap}.pierAnimals{position:absolute;left:6px;right:5px;bottom:55px;display:flex;gap:0;flex-wrap:wrap;justify-content:center;align-items:flex-end;align-content:end;min-height:66px;max-height:95px;overflow:visible}.sprite{display:block;object-fit:contain;image-rendering:pixelated;pointer-events:none}.unit{display:inline-flex;flex-direction:column;align-items:center;justify-content:end;background:transparent;border:0;padding:0;min-width:42px;cursor:pointer;position:relative}.unit img{width:48px;height:50px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(1px 2px #1e39444f)}.unit:hover:not(:disabled){transform:none}.unit:disabled{cursor:default;opacity:1}.unit:disabled img{opacity:1;filter:drop-shadow(1px 2px #1e39444f)}.unit b{display:none}.unit.active{outline:none;background:transparent}.unit,.unit:hover,.unit:focus,.unit:focus-visible{border:none!important;outline:none!important;box-shadow:none!important;background:transparent!important;transform:none!important}.waterLabel{position:absolute;bottom:11px;color:#e8f4f1;text-shadow:0 2px 3px #15354a;font-size:12px;font-weight:800;text-align:center}.boatObj{position:absolute;bottom:73px;width:148px;height:95px;transition:left 1.15s ease-in-out;z-index:6}.boatObj img.boatPic{width:100%;height:76px;position:absolute;bottom:0;left:0;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(1px 5px 2px #133d585b)}.farmerPic{position:absolute;opacity:0;width:54px;height:79px;left:29px;right:auto;object-fit:contain;image-rendering:pixelated;bottom:24px;right:7px;z-index:5}.boatCargo{position:absolute;bottom:25px;left:46%;right:5px;display:flex;align-items:end;justify-content:center;z-index:4}.boatCargo .unit{min-width:28px;max-width:34px}.boatCargo .unit img{width:38px;height:48px}.boatCargo .unit b{display:none}.boatCargo .unit img{object-fit:contain}.boatObj.active{filter:drop-shadow(0 0 6px #fff3a5)}.sceneControls{display:flex;gap:8px;align-items:center;justify-content:center;padding:10px;background:#163e50f2;border-top:1px solid #86b6b9}.sceneControls button{font-size:19px;font-weight:900;min-width:54px;padding:7px 11px}.sceneControls .tiny{font-size:14px}.status{padding:9px 12px;border-radius:9px;min-height:39px;background:#1a3948;margin-top:9px;color:#d8edef}.status.bad{background:#663d36;color:#ffe1d6}.status.good{background:#345c41;color:#e1f7da}.rules{display:grid;gap:7px;margin-top:9px}.rule{font-size:13px;background:#294351;border-radius:8px;padding:8px}.rule strong{color:#f2ce92}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px;margin-top:12px}.galleryItem{background:#263e4c;border:1px solid #54727d;border-radius:11px;padding:11px;text-align:left}.galleryItem.selected{border-color:#ffd28b;background:#40505a}.thumb{display:flex;min-height:68px;align-items:center;gap:1px;background:linear-gradient(#a8d7cf 0 50%,#7da96b 50%);padding:8px;border-radius:8px;margin-bottom:7px}.thumb img{height:44px;width:36px;object-fit:contain;image-rendering:pixelated}.thumb span{font-weight:800;font-size:11px;color:#163441;margin-left:auto}.overlay{position:fixed;inset:0;background:#06151bdf;z-index:40;display:flex;align-items:center;justify-content:center;padding:15px}.dialog{max-width:1100px;width:100%;max-height:95vh;overflow:auto;background:#1d3440;border:1px solid #6e8a8f;border-radius:15px;padding:16px}.hidden{display:none!important}.dialogHead{display:flex;gap:10px;align-items:center;justify-content:space-between}.viewer{padding:11px;background:#253d48;border-radius:10px;margin-top:10px}.viewer input{width:100%}textarea{width:100%;min-height:340px;background:#0d202a;color:#e0f2e5;border:1px solid #5b7781;border-radius:9px;resize:vertical;padding:12px;font:13px/1.5 Consolas,monospace}.help{margin-top:10px;color:#c3d7dc;font-size:13px;line-height:1.5}#levelTitle{font-weight:700}#solveStatus{font-size:13px;color:#bed9df;margin-top:8px}@media(max-width:1000px){.layout{grid-template-columns:1fr}.scene{height:410px}.side{order:2}}
+.flightSprite{position:fixed;z-index:999;pointer-events:none;object-fit:contain;image-rendering:pixelated;transition:transform .45s ease-in-out,opacity .45s ease-in-out}.walkingFarmer{position:fixed;z-index:998;pointer-events:none;object-fit:contain;image-rendering:pixelated;transition:transform .68s ease-in-out}
+.land.edgeLeft{border-left:0;border-top-left-radius:0;border-bottom-left-radius:0}
+.land.edgeRight{border-right:0;border-top-right-radius:0;border-bottom-right-radius:0}
+.land.edgeLeft .pierAnimals{left:auto;right:6px;width:205px}
+.land.edgeRight .pierAnimals{left:6px;right:auto;width:205px}
+.winOverlay{position:absolute;inset:0 0 59px;z-index:60;display:flex;align-items:center;justify-content:center;background:#102632a8;padding:12px;backdrop-filter:blur(2px)}
+.winOverlay.hidden{display:none}
+.winDialog{border:2px solid #f2cf87;border-radius:18px;background:linear-gradient(150deg,#305569,#193b4f);box-shadow:0 14px 48px #07161ecb;text-align:center;padding:25px 25px 22px;width:min(420px,100%);color:#fff9e9}
+.winDialog h2{font-size:32px;margin:0 0 16px;color:#ffe0a2}
+.winStats{display:flex;justify-content:center;gap:16px;margin-bottom:22px}
+.winStat{flex:1;padding:12px;border-radius:9px;background:#ffffff12}
+.winStat span{display:block;font-size:12px;color:#d3e0e3;margin-bottom:5px}
+.winStat strong{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.winButtons{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.winButtons button{font-size:13px;padding:10px 12px}
+
+/* v1.05 — crisp sprites and compact gallery */
+.waterLabel{display:none!important}
+.unit,.unit:hover,.unit:focus-visible{background:none!important;outline:none!important;border:0!important;box-shadow:none!important;transform:none!important}
+.unit img,.unit:hover img{transform:none!important}
+.boatObj{cursor:pointer}
+.boatCargo{pointer-events:none}
+.boatCargo .unit{pointer-events:auto;cursor:pointer}
+.farmerHit{position:absolute;left:13%;bottom:19px;width:32%;height:62px;background:transparent!important;border:0;outline:0;padding:0;z-index:9;cursor:pointer}
+.farmerHit:hover,.farmerHit:focus{background:transparent!important;border:0;outline:0}
+#galleryOverlay .dialog{overflow-x:hidden;width:min(1100px,100%)}
+#gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:10px;min-width:0;max-width:100%}
+#gallery .galleryItem{min-width:0;width:100%;overflow:hidden;padding:9px}
+#gallery .thumb{position:relative;min-width:0;width:100%;max-width:100%;height:68px;overflow:hidden;display:block;padding:2px 6px;margin-bottom:7px}
+#gallery .thumbStack{display:flex;align-items:end;position:absolute;left:7px;bottom:2px;right:5px;height:62px;overflow:hidden;padding:0}
+#gallery .thumbStack img{height:55px;object-fit:contain;image-rendering:pixelated;flex:0 0 45px;width:45px;margin-left:-17px;position:relative}
+#gallery .thumbStack img:first-child{margin-left:0}
+#gallery .thumbStack img:hover{z-index:2}
+#gallery .thumb span{position:absolute;right:4px;top:4px;background:#add4bdc8;padding:1px 3px;border-radius:3px;font-weight:800;font-size:10px}
+#galleryOverlay .dialog::-webkit-scrollbar{width:9px}
+ 
+/* v1.06: gallery sprites, no index badge, stable feet baseline */
+#gallery .thumbStack{display:block;left:5px;right:5px;overflow:hidden}
+#gallery .thumbStack img{position:absolute;bottom:0;width:52px;height:52px;max-width:none;object-fit:contain;object-position:center bottom;margin:0;image-rendering:pixelated}
+#gallery .thumbStack img:hover{z-index:auto}
+#gallery .thumb span{display:none!important}
+.pierAnimals .unit img,.boatCargo .unit img{object-position:center bottom}
+.flightSprite{object-position:center bottom}
+
+/* v1.18: only the new pixel boats; seated ferryman composed separately */
+.boatObj .farmerPic{opacity:1;width:51px;height:67px;bottom:23px;left:15px;right:auto;z-index:6;object-position:center bottom}
+.boatObj .boatPic{bottom:0}
+.pierAnimals .unit[data-spec="tiger"] img{width:58px;height:57px}
+.pierAnimals .unit[data-spec="bull"] img{width:61px;height:59px}
+.boatCargo .unit[data-spec="tiger"] img{width:44px;height:54px}
+.boatCargo .unit[data-spec="bull"] img{width:46px;height:57px}
+#gallery .thumbStack img[data-spec="tiger"]{width:57px;height:57px}
+#gallery .thumbStack img[data-spec="bull"]{width:59px;height:59px}
+#gallery .galleryItem .small{display:inline-block;white-space:pre-line;line-height:1.45}
+
+/* v1.08: seated ferryman with original oar, balanced low rows */
+.land .pierAnimals{bottom:0!important;left:6px;right:6px;width:auto!important;height:104px;min-height:0;max-height:none;display:block;overflow:visible;pointer-events:none}
+.land.edgeLeft .pierAnimals{left:auto;right:6px;width:205px!important}
+.land.edgeRight .pierAnimals{left:6px;right:auto;width:205px!important}
+.pierAnimals .animalRow{position:absolute;left:0;right:0;display:flex;align-items:flex-end;justify-content:center;gap:0;pointer-events:none;height:62px}
+.pierAnimals .animalRow .unit{pointer-events:auto;flex:0 0 47px;min-width:0;margin:0 -2px}
+.pierAnimals .animalRow.frontRow{bottom:9px;z-index:3}
+.pierAnimals .animalRow.rearRow{bottom:47px;z-index:2}
+/* Ferryman is part of active boat artwork. Invisible geometry is used for walking transition. */
+.boatObj .farmerPic{opacity:0!important;pointer-events:none}
+
+.cloud{position:absolute;border-radius:999px;background:rgba(255,255,255,.72);box-shadow:0 8px 22px rgba(255,255,255,.10)}
+.cloud:before,.cloud:after{content:'';position:absolute;border-radius:999px;background:inherit}
+.cloud:before{width:55%;height:120%;left:12%;bottom:38%}
+.cloud:after{width:38%;height:90%;right:10%;bottom:42%}
+.cloud.c1{top:92px;left:18%;width:118px;height:28px;opacity:.78}
+.cloud.c2{top:64px;left:62%;width:146px;height:34px;opacity:.72}
+.cloud.c3{top:122px;left:78%;width:96px;height:24px;opacity:.65}
+.gulls{position:absolute;pointer-events:none}
+.gulls.g1{top:76px;left:33%;width:72px;height:22px;opacity:.75}
+.gulls.g2{top:112px;right:18%;width:88px;height:26px;opacity:.65}
+.gull{position:absolute;width:18px;height:10px;border-top:3px solid rgba(255,255,255,.82);border-radius:50% 50% 0 0;transform-origin:center center}
+.gull:after{content:'';position:absolute;left:11px;top:-3px;width:18px;height:10px;border-top:3px solid rgba(255,255,255,.82);border-radius:50% 50% 0 0}
+.gulls.g1 .gull:nth-child(1){left:0;top:4px;transform:scale(.95)}
+.gulls.g1 .gull:nth-child(2){left:25px;top:0;transform:scale(1.05)}
+.gulls.g2 .gull:nth-child(1){left:0;top:6px;transform:scale(.8)}
+.gulls.g2 .gull:nth-child(2){left:26px;top:1px;transform:scale(1)}
+.gulls.g2 .gull:nth-child(3){left:54px;top:8px;transform:scale(.72)}
+.sun{pointer-events:none;position:absolute;top:24px;left:50%;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 36% 36%,#fffbd8 0 17%,#ffe98f 34%,#ffd55c 60%,#ffbf41 78%,rgba(255,191,65,.0) 79%);box-shadow:0 0 18px rgba(255,223,119,.6),0 0 46px rgba(255,223,119,.38)}
+.sun:before{content:'';position:absolute;inset:-15px;border-radius:50%;background:repeating-conic-gradient(from 0deg, rgba(255,221,100,.0) 0 10deg, rgba(255,221,100,.32) 10deg 18deg, rgba(255,221,100,.0) 18deg 30deg);-webkit-mask:radial-gradient(circle, transparent 0 63%, #000 66%);mask:radial-gradient(circle, transparent 0 63%, #000 66%);opacity:.85}
+.pierAnimals .animalRow.frontRow.singleRow{bottom:18px;}
+
+.cloud.c4{top:140px;left:5%;width:106px;height:25px;opacity:.56}
+.cloud.c5{top:160px;left:48%;width:136px;height:27px;opacity:.61}
+.cloud.c6{top:38px;left:85%;width:90px;height:23px;opacity:.53}
+.cloud.c7{top:96px;left:42%;width:104px;height:26px;opacity:.48}
+.cloud.c8{top:176px;left:72%;width:88px;height:22px;opacity:.47}
+.gulls.g3{top:53px;left:10%;width:92px;height:24px;opacity:.68}
+.gulls.g4{top:147px;right:31%;width:72px;height:24px;opacity:.64}
+.gulls.g5{top:88px;left:74%;width:82px;height:23px;opacity:.58}
+.gulls.g6{top:168px;left:22%;width:76px;height:22px;opacity:.56}
+.gulls.g3 .gull:nth-child(1){left:0;top:5px;transform:scale(.85)}
+.gulls.g3 .gull:nth-child(2){left:29px;top:0;transform:scale(.7)}
+.gulls.g3 .gull:nth-child(3){left:53px;top:8px;transform:scale(.95)}
+.gulls.g4 .gull:nth-child(1){left:0;top:5px;transform:scale(.77)}
+.gulls.g4 .gull:nth-child(2){left:29px;top:1px;transform:scale(.9)}
+
+.boatCargo{justify-content:flex-start!important;align-items:flex-end}
+.boatCargo .seatSlot{position:relative;flex:0 0 34px;width:34px;min-width:34px;height:57px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
+.boatCargo .seatSlot .unit{pointer-events:auto;flex:0 0 34px;min-width:34px;max-width:34px;width:34px;margin:0}
+.boatCargo .seatSlot .unit img{object-position:center bottom}
+
+/* v1.18: solve in the lower-right under the game; viewer above instructions */
+.sceneControlSpacer{flex:1;min-width:8px}
+.sceneControls #solve{margin-left:auto;white-space:nowrap}
+.sceneControls #stop{white-space:nowrap}
+#viewer{position:relative;z-index:auto;margin-top:10px;margin-bottom:10px}
+#solveStatus:empty{display:none}
+#solveStatus{margin-top:8px;margin-bottom:10px}
+.help{clear:both}
+</style></head><body><div class="app"><div class="head"><h1>Ferryman Pro <span style="font-size:13px;color:#bdd0d5">v1.18</span></h1><span class="pill" id="levelTitle">Classic 1</span><span class="pill" id="moveCounter">Переправ: 0</span><div class="spacer"></div><button id="galleryBtn">Галерея уровней</button><button id="editBtn">Текст уровней</button></div><div class="layout"><div><div class="sceneWrap"><div id="scroll" class="sceneScroll"><div id="scene" class="scene"><div class="sun"></div></div></div><div id="winOverlay" class="winOverlay hidden" role="dialog" aria-modal="true" aria-labelledby="winHeading"><div class="winDialog"><h2 id="winHeading">Победа!</h2><div class="winStats"><div class="winStat"><span>Затраченное время</span><strong id="winTime">00:00</strong></div><div class="winStat"><span>Переправ</span><strong id="winCrossings">0</strong></div></div><div class="winButtons"><button id="winRestart">Начать с начала</button><button id="winNext" class="primary">Следующий уровень</button><button id="winClose">Закрыть</button></div></div></div><div class="sceneControls"><button id="left" aria-label="Переплыть налево">◀</button><button id="right" aria-label="Переплыть направо">▶</button><span style="width:15px"></span><button class="tiny" id="undo">↶ Undo</button><button class="tiny" id="reset">⟳ Reset</button><span class="sceneControlSpacer"></span><button class="primary" id="solve">Найти решение</button><button id="stop" class="hidden">Стоп</button></div></div><div class="status" id="status">Кликни по животному, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.</div><div class="viewer hidden" id="viewer"><div class="row"><strong>Просмотр решения</strong><span class="spacer"></span><span id="viewCount"></span><button id="vfirst">|◀</button><button id="vprev">◀</button><button id="vplay">▶ Play</button><button id="vnext">▶</button><button id="vlast">▶|</button><button id="vclose">Закрыть</button></div><input id="vslider" type="range" min="0" value="0"><div class="small" id="vinfo"></div></div><div id="solveStatus"></div><div class="help">Прокручивай сцену горизонтально. Нажатие на животное у паромщика сажает его в выбранную лодку; повторное нажатие в лодке высаживает обратно. Клик по лодке переправляет на соседний берег, клик по паромщику на промежуточном причале пересаживает его в другую лодку. Стрелки также переправляют. На промежуточном причале нажми на паромщика, чтобы он перешёл в соседнюю лодку. После переправы пассажиры остаются в лодке, пока ты их не высадишь. Паромщик занимает одно место.</div></div><div class="panel side"><h3>Правила уровня</h3><div id="rules" class="rules"></div></div></div></div><div class="overlay hidden" id="galleryOverlay"><div class="dialog"><div class="dialogHead"><h2>Галерея уровней</h2><button id="closeGallery">Закрыть</button></div><div id="gallery" class="gallery"></div></div></div><div class="overlay hidden" id="spritesOverlay"><div class="dialog"><div class="dialogHead"><h2>Спрайты Ferryman</h2><button id="closeSprites">Закрыть</button></div><p class="small">По умолчанию используется приложенный пиксельный набор. При желании загрузи другие изображения (можно сразу несколько PNG/WebP). Для берега: <code>wolf.png</code>, <code>goat.png</code>, <code>tiger.png</code>, <code>bull.png</code>, <code>cabbage.png</code>, <code>ferryman.png</code>. Для лодки: <code>wolf_sit.png</code>, <code>goat_sit.png</code>, <code>tiger_sit.png</code>, <code>bull_sit.png</code>, <code>ferryman_sit.png</code>. Лодки: <code>boat_2_seats.png</code>, <code>boat_3_seats.png</code>, <code>boat_4_seats.png</code>. В случае отсутствия отдельных файлов временно используются прежние изображения. Выбранные файлы применяются сразу в этом окне браузера.</p><input id="spriteFiles" type="file" accept="image/png,image/webp" multiple><p id="spriteStatus" class="small"></p></div></div><div class="overlay hidden" id="editorOverlay"><div class="dialog"><div class="dialogHead"><h2>Текстовый каталог Ferryman</h2><button id="closeEditor">Закрыть</button></div><p class="small">Общий блок FERRYMAN RULES — в начале файла. Для каждого уровня применяются только правила, содержащие присутствующие виды. Вместимость лодок — <code>seats</code>, включая паромщика; дополнительно можно задать <code>weight</code> для суммарного веса пассажиров.</p><textarea id="source"></textarea><div class="row"><button class="primary" id="apply">Применить каталог</button><button id="download">Сохранить TXT</button><button id="restore">Восстановить исходные 10</button></div><p class="small" id="editorStatus"></p></div></div>
+<script>
+'use strict';
+const ASSETS={"farmer":"image/farmer.png","wolf":"image/wolf.png","goat":"image/goat.png","tiger":"image/tiger.png","bull":"image/bull.png","cabbage":"image/cabbage.png","farmer_sit":"image/farmer_sit.png","wolf_sit":"image/wolf_sit.png","goat_sit":"image/goat_sit.png","tiger_sit":"image/tiger_sit.png","bull_sit":"image/bull_sit.png","cabbage_sit":"image/cabbage_sit.png","boat2":"image/boat2.png","boat3":"image/boat3.png","boat4":"image/boat4.png","empty_boat2":"image/empty_boat2.png","empty_boat3":"image/empty_boat3.png","empty_boat4":"image/empty_boat4.png"};
+const DEFAULT_SOURCE="FERRYMAN RULES\nrule: wolf_goat | wolf > goat if wolf >= goat\nrule: tiger_goat | tiger > goat\nrule: goat_cabbage | goat > cabbage\nrule: bull_cabbage | bull > cabbage\nrule: tiger_bull | tiger > bull if tiger > bull\nEND RULES\n\nFERRYMAN\nname: Classic 1\npiers: 2\nboats: seats=2\nstart: wolf=1, goat=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 2\npiers: 2\nboats: seats=2\nstart: wolf=2, goat=1\nEND\n\nFERRYMAN\nname: Classic 3\npiers: 3\nboats: seats=2 | seats=2\nstart: wolf=1, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 4\npiers: 2\nboats: seats=3\nstart: wolf=3, goat=3\nEND\n\nFERRYMAN\nname: Classic 5\npiers: 2\nboats: seats=3\nstart: wolf=2, tiger=1, goat=2\nEND\n\nFERRYMAN\nname: Classic 6\npiers: 3\nboats: seats=3 | seats=3\nstart: tiger=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 7\npiers: 2\nboats: seats=3\nstart: wolf=1, tiger=1, goat=3, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 8\npiers: 2\nboats: seats=2\nstart: tiger=2, bull=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 9\npiers: 2\nboats: seats=3\nstart: bull=1, wolf=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 10\npiers: 3\nboats: seats=3 | seats=3\nstart: bull=2, tiger=2, goat=1, cabbage=1\nEND";
+const INFO={wolf:{name:'Волк',weight:2},goat:{name:'Коза',weight:1},tiger:{name:'Тигр',weight:2},bull:{name:'Бык',weight:2},cabbage:{name:'Капуста',weight:1}};
+const $=id=>document.getElementById(id);
+let catalog=[],globalRules=[],levelIndex=0,level=null,game=null,history=[],cargo={},selectedWater=null,busy=false,solution=null,viewStep=0,playTimer=null,solverToken=0,preview=false,levelStartedAt=Date.now(),previewState=null,previewCargo={},previewWater=0,playerAnimating=false,pendingLanding=null,pendingBoarding=null,pendingSeat=null,boatSlots=[],previewSlots=[];
+function clone(s){return JSON.parse(JSON.stringify(s));}
+function parse(text){
+ const rulesBlock=text.match(/FERRYMAN RULES\s*\n([\s\S]*?)\nEND RULES/i);if(!rulesBlock)throw Error('Нет блока FERRYMAN RULES');
+ const rules=[];for(const line of rulesBlock[1].split(/\r?\n/)){const l=line.trim();if(!l||l.startsWith('#'))continue;let m=l.match(/^rule:\s*([\w-]+)\s*\|\s*(\w+)\s*>\s*(\w+)(?:\s+if\s+(\w+)\s*(>=|>|<=|<|==)\s*(\w+))?$/i);if(!m)throw Error('Ошибка в правиле: '+l);rules.push({id:m[1],a:m[2],b:m[3],condition:m[4]?[m[4],m[5],m[6]]:null});}
+ const regex=/^FERRYMAN\s*\n([\s\S]*?)\nEND\s*$/gm;let m,levels=[];while((m=regex.exec(text))){const lines=m[1].split(/\r?\n/),fields={};for(const line of lines){let x=line.match(/^([\w]+):\s*(.*?)\s*$/);if(x)fields[x[1].toLowerCase()]=x[2];}let piers=Number(fields.piers),names=[],totals=[];if(!Number.isInteger(piers)||piers<2||piers>12)throw Error('piers должен быть от 2 до 12');for(const part of (fields.start||'').split(',')){let q=part.trim().match(/^(\w+)\s*=\s*(\d+)$/);if(!q)throw Error('Неверный start: '+part);if(!INFO[q[1]])throw Error('Неизвестный объект '+q[1]);if(+q[2]>0){names.push(q[1]);totals.push(+q[2]);}}let boats=(fields.boats||'').split('|').map(x=>{let ss=x.match(/seats\s*=\s*(\d+)/),ww=x.match(/weight\s*=\s*(\d+)/);if(!ss&&!ww)throw Error('Лодке нужны seats или weight');return {seats:ss?+ss[1]:null,weight:ww?+ww[1]:null};});if(boats.length!==piers-1)throw Error('Для '+piers+' причалов требуется '+(piers-1)+' лодок');const applicable=rules.filter(r=>names.includes(r.a)&&names.includes(r.b));levels.push({name:fields.name||'Без названия',piers,names,totals,boats,rules:applicable});}if(!levels.length)throw Error('Нет уровней FERRYMAN');return {levels,rules};
+}
+function initial(l){return {f:0,banks:Array.from({length:l.piers},(_,p)=>l.totals.map(n=>p===0?n:0)),boatPos:Array(l.piers-1).fill(0)};}
+function evalRule(r,counts){const get=id=>counts[level.names.indexOf(id)]||0;if(!(get(r.a)>0&&get(r.b)>0))return false;if(!r.condition)return true;let [x,op,y]=r.condition,a=get(x),b=get(y);return {'>':()=>a>b,'>=':()=>a>=b,'<':()=>a<b,'<=':()=>a<=b,'==':()=>a===b}[op]();}
+function danger(l,s){for(let p=0;p<l.piers;p++){if(p===s.f)continue;for(const rule of l.rules){const get=id=>s.banks[p][l.names.indexOf(id)]||0;let condition=true;if(rule.condition){const [a,op,b]=rule.condition,x=get(a),y=get(b);condition={'>' :x>y,'>=':x>=y,'<':x<y,'<=':x<=y,'==':x===y}[op];}if(get(rule.a)>0&&get(rule.b)>0&&condition)return {pier:p,rule};}}return null;}
+function canCarry(l,water,arr){const boat=l.boats[water],count=arr.reduce((a,b)=>a+b,0),weight=arr.reduce((sum,n,i)=>sum+n*INFO[l.names[i]].weight,0);return (boat.seats===null||count+1<=boat.seats)&&(boat.weight===null||weight<=boat.weight);}
+function crossed(l,s,water,arr){const f=s.f;if(water!==f&&water!==f-1)return null;if(s.boatPos[water]!==f-water)return null;if(!canCarry(l,water,arr))return null;for(let i=0;i<arr.length;i++)if(arr[i]>s.banks[f][i]||arr[i]<0)return null;const out=clone(s),to=water+(f===water?1:0);for(let i=0;i<arr.length;i++){out.banks[f][i]-=arr[i];out.banks[to][i]+=arr[i];}out.f=to;out.boatPos[water]=to-water;return danger(l,out)?null:out;}
+function won(l,s){return s.f===l.piers-1&&l.totals.every((n,i)=>s.banks[l.piers-1][i]===n);}
+function hash(s){return s.f+'|'+s.boatPos.join('')+'|'+s.banks.map(b=>b.join(',')).join(';');}
+function listCargo(l,s,water){const maxCount=l.boats[water].seats===null?99:l.boats[water].seats-1;const found=[],cur=Array(l.names.length).fill(0);function rec(i,n){if(i===cur.length){if(canCarry(l,water,cur))found.push(cur.slice());return;}for(let k=0;k<=Math.min(s.banks[s.f][i],maxCount-n);k++){cur[i]=k;rec(i+1,n+k);}}rec(0,0);return found;}
+function flash(txt,kind=''){const el=$('status');el.textContent=txt;el.className='status '+kind;}
+function hideVictory(){$('winOverlay').classList.add('hidden');}
+function showVictory(){
+ const secs=Math.max(0,Math.floor((Date.now()-levelStartedAt)/1000));
+ const h=Math.floor(secs/3600),m=Math.floor(secs%3600/60),ss=secs%60;
+ $('winTime').textContent=(h?String(h).padStart(2,'0')+':':'')+String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0');
+ $('winCrossings').textContent=String(history.length);
+ $('winNext').disabled=levelIndex>=catalog.length-1;
+ $('winOverlay').classList.remove('hidden');
+}
+function loadLevel(i){hideVictory();levelStartedAt=Date.now();solverToken++;pausePlay();levelIndex=i;level=catalog[i];game=initial(level);history=[];cargo={};selectedWater=0;solution=null;preview=false;previewState=null;previewCargo={};previewWater=0;playerAnimating=false;pendingLanding=null;pendingBoarding=null;pendingSeat=null;boatSlots=[];previewSlots=[];busy=false;$('viewer').classList.add('hidden');$('levelTitle').textContent=level.name;$('solveStatus').textContent='';flash('Нажми на животное, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.');render();}
+function current(){return preview?(previewState||(solution?solution.states[viewStep]:game)):game;}
+function chooseWater(){const s=current(),opts=[s.f-1,s.f].filter(w=>w>=0&&w<level.piers-1&&s.boatPos[w]===s.f-w);if(!opts.length)return null;if(preview){return opts.includes(previewWater)?previewWater:opts[0];}return opts.includes(selectedWater)?selectedWater:opts[0];}
+function pierPositions(){
+ const result=[];
+ document.querySelectorAll('.land.here .pierAnimals .unit:not(.landingSlot)').forEach(el=>{
+  const r=el.getBoundingClientRect();result.push({spec:el.dataset.spec,x:r.left,y:r.top});
+ });
+ return result;
+}
+function animatePierShuffle(before){
+ const unused=before.slice();
+ document.querySelectorAll('.land.here .pierAnimals .unit:not(.landingSlot)').forEach(el=>{
+  const rect=el.getBoundingClientRect();let best=-1,score=Infinity;
+  unused.forEach((item,i)=>{if(item.spec!==el.dataset.spec)return;const d=Math.abs(item.x-rect.left)+Math.abs(item.y-rect.top);if(d<score){score=d;best=i;}});
+  if(best<0)return;const old=unused.splice(best,1)[0];const dx=old.x-rect.left,dy=old.y-rect.top;
+  if(Math.abs(dx)<1&&Math.abs(dy)<1)return;
+  el.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:500,easing:'ease-in-out'});
+ });
+}
+function flySprite(source,target,done,options={}){
+ if(!source||!target){done();return;}
+ // When unloading the original button has already been redrawn to make room.
+ // Its saved coordinates are passed instead of a DOM node.
+ const origin=(typeof source.querySelector==='function')?(source.querySelector('img')||source):null;
+ const from=origin?origin.getBoundingClientRect():source.rect;
+ const originSrc=origin?origin.src:source.src;
+ const seating=!!options.boarding,spec=options.spec;
+ let to;
+ if(target.classList.contains('landingSlot')){
+   to=target.querySelector('img').getBoundingClientRect();
+ }else if(target.classList.contains('seatSlot') && target.querySelector('.boardingTarget img')){
+   to=target.querySelector('.boardingTarget img').getBoundingClientRect();
+ }else{
+   const landing=unit(spec,seating,false);
+   landing.style.visibility='hidden';landing.style.pointerEvents='none';
+   target.append(landing);
+   to=landing.querySelector('img').getBoundingClientRect();landing.remove();
+ }
+ const ghost=document.createElement('img');ghost.className='flightSprite';ghost.src=img(spec,false);
+ Object.assign(ghost.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px',objectPosition:'center bottom',transition:'none'});
+ document.body.append(ghost);if(origin)origin.style.opacity='0';busy=true;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+   ghost.style.transition='left 475ms ease-in-out, top 475ms ease-in-out, width 475ms ease-in-out, height 475ms ease-in-out';
+   ghost.style.left=to.left+'px';ghost.style.top=to.top+'px';ghost.style.width=to.width+'px';ghost.style.height=to.height+'px';
+ }));
+ setTimeout(()=>{if(seating)ghost.src=img(spec,true);ghost.remove();busy=false;done();},510);
+}
+function toggleSpecies(spec,fromBoat,sourceEl){
+ if(preview||busy)return;
+ const s=game,water=chooseWater();if(water===null){flash('На этом причале нет лодки.','bad');return;}
+ selectedWater=water;const i=level.names.indexOf(spec),now=cargo[spec]||0;
+ if(fromBoat){if(!now)return;}
+ else{if(now>=s.banks[s.f][i])return;const tryCargo=level.names.map(k=>(cargo[k]||0)+(k===spec?1:0));if(!canCarry(level,water,tryCargo)){flash('Лодка перегружена — не хватает мест или грузоподъёмности.','bad');return;}}
+ let target,source=sourceEl;
+ const slots=ensureBoatSlots(water);
+ let slot=-1;
+ if(fromBoat){
+   const seatEl=sourceEl.closest('.seatSlot');
+   slot=seatEl?Number(seatEl.dataset.seat):slots.indexOf(spec);
+   if(slot<0||slots[slot]!==spec)return;
+   const origin=sourceEl.querySelector('img')||sourceEl;
+   source={rect:origin.getBoundingClientRect(),src:origin.src};
+   const oldPositions=pierPositions();
+   pendingSeat=slot;pendingLanding={pier:game.f,spec};
+   render();animatePierShuffle(oldPositions);
+   target=document.querySelector('.land.here .pierAnimals .landingSlot');
+ }else{
+   slot=slots.indexOf(null);
+   if(slot<0){flash('Нет свободного места в лодке.','bad');return;}
+   const origin=sourceEl.querySelector('img')||sourceEl;
+   source={rect:origin.getBoundingClientRect(),src:origin.src};
+   const oldPositions=pierPositions();
+   pendingBoarding={pier:game.f,spec};pendingSeat=slot;
+   render();animatePierShuffle(oldPositions);
+   target=document.querySelector('#boat'+water+' .boatCargo .seatSlot[data-seat="'+slot+'"]');
+ }
+ flySprite(source,target,()=>{
+  if(fromBoat)slots[slot]=null;else slots[slot]=spec;
+  pendingLanding=null;pendingBoarding=null;pendingSeat=null;
+  cargo[spec]=now+(fromBoat?-1:1);render();
+  if(won(level,game)&&Object.values(cargo).every(n=>n===0)){
+    flash('Победа! Все животные и предметы выгружены на правый причал.','good');
+    showVictory();
+  }
+ },{spec,boarding:!fromBoat});
+}
+function setWater(w,after){
+ if(preview||busy)return;
+ if(Object.values(cargo).some(Boolean)){flash('Сначала высади пассажиров, прежде чем менять лодку.','bad');return;}
+ if(selectedWater===w){if(after)after();return;}
+ const old=$('boat'+selectedWater),next=$('boat'+w),start=old?.querySelector('.farmerPic');
+ if(!start||!next){selectedWater=w;render();if(after)after();return;}
+ const startRect=start.getBoundingClientRect(),endRect=next.getBoundingClientRect();
+ const ghost=document.createElement('img');ghost.src=farmerImg(false);ghost.className='walkingFarmer';
+ const footY=startRect.bottom, endFeet=endRect.bottom-24;
+ Object.assign(ghost.style,{left:startRect.left+'px',top:(footY-startRect.height)+'px',width:startRect.width+'px',height:startRect.height+'px',transform:'none',transition:'none',objectPosition:'center bottom'});
+ document.body.append(ghost);start.style.opacity='0';if(old)old.querySelector('.boatPic').src=emptyBoatImg(level.boats[selectedWater]);busy=true;
+ // The standing farmer travels directly between the two boats.
+ const targetX=endRect.left+endRect.width*0.2;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{ghost.style.transition='left 720ms ease-in-out, top 720ms ease-in-out';ghost.style.left=targetX+'px';ghost.style.top=(endFeet-startRect.height)+'px';}));
+ setTimeout(()=>{ghost.remove();busy=false;selectedWater=w;render();if(after)after();},760);
+}
+function move(dir){
+ if(busy||preview)return;
+ const w=dir===1?game.f:game.f-1;
+ if(w<0||w>=level.piers-1){flash('Дальше причалов нет.','bad');return;}
+ if(game.boatPos[w]!==game.f-w){flash('Лодка этого водоёма находится у противоположного берега.','bad');return;}
+ if(selectedWater!==w){if(Object.values(cargo).some(Boolean)){flash('Пассажиры в другой лодке. Высади их перед сменой водоёма.','bad');return;}setWater(w,()=>move(dir));return;}
+ const arr=level.names.map(k=>cargo[k]||0),n=crossed(level,game,w,arr);
+ if(!n){const fake=clone(game),to=game.f+dir;for(let i=0;i<arr.length;i++){fake.banks[game.f][i]-=arr[i];fake.banks[to][i]+=arr[i];}fake.f=to;const d=danger(level,fake);flash(d?'Нельзя отплыть: на причале '+(d.pier+1)+' произойдёт нападение!':'Эта переправа недопустима.','bad');return;}
+ history.push({state:clone(game),cargo:{...cargo},water:selectedWater,slots:boatSlots.slice()});
+ animate(w,n,()=>{game=n;selectedWater=w;render();const win=won(level,game)&&Object.values(cargo).every(n=>n===0);flash(win?'Победа! Все выгружены на правый причал.':'Переправа выполнена. Пассажиры остаются в лодке до высадки.',win?'good':'');if(win)showVictory();});
+}
+function animate(w,n,cb){
+ busy=true;
+ const el=$('boat'+w);
+ if(el){el.style.left=boatLeft(w,n.boatPos[w])+'px';el.style.zIndex=20;const center=boatLeft(w,n.boatPos[w])+74,sc=$('scroll');const toScroll=Math.max(0,center-sc.clientWidth/2);sc.scrollTo({left:toScroll,behavior:'smooth'});}
+ setTimeout(()=>{busy=false;cb();},1190);
+}
+function undo(){
+ if(busy||preview||!history.length)return;hideVictory();
+ const entry=history.pop();game=entry.state;cargo=entry.cargo;selectedWater=entry.water;boatSlots=entry.slots||[];render();flash('Последняя переправа отменена.');
+}
+const NEW_EMPTY_BOATS={"2":"image/empty_boat_new_2.png","3":"image/empty_boat_new_3.png","4":"image/empty_boat_new_4.png"};
+const EXTRA_SPRITES={};
+const SPRITE_KEYS={wolf:'wolf',goat:'goat',tiger:'tiger',bull:'bull',cabbage:'cabbage',ferryman:'farmer',farmer:'farmer',wolf_sit:'wolf_sit',goat_sit:'goat_sit',tiger_sit:'tiger_sit',bull_sit:'bull_sit',cabbage_sit:'cabbage_sit',ferryman_sit:'farmer_sit',farmer_sit:'farmer_sit',boat_2_seats:'boat2',boat_3_seats:'boat3',boat_4_seats:'boat4'};
+function img(spec,inBoat=false){return EXTRA_SPRITES[inBoat?spec+'_sit':spec]||ASSETS[inBoat?spec+'_sit':spec]||EXTRA_SPRITES[spec]||ASSETS[spec]||'';}
+function boatImg(cap){const seats=Math.max(2,Math.min(4,cap.seats||3));return NEW_EMPTY_BOATS[seats];}
+function emptyBoatImg(cap){return boatImg(cap);}
+function farmerImg(seated=true){return (seated?(EXTRA_SPRITES.farmer_sit||ASSETS.farmer_sit):(EXTRA_SPRITES.farmer||ASSETS.farmer));}
+
+function importSprites(files){let loaded=0,unknown=[];const jobs=Array.from(files).map(file=>new Promise(resolve=>{const key=SPRITE_KEYS[file.name.replace(/\.(png|webp)$/i,'').toLowerCase()];if(!key){unknown.push(file.name);return resolve();}const reader=new FileReader();reader.onload=()=>{EXTRA_SPRITES[key]=reader.result;loaded++;resolve();};reader.onerror=()=>resolve();reader.readAsDataURL(file);}));Promise.all(jobs).then(()=>{render();gallery();$('spriteStatus').textContent='Загружено: '+loaded+'. '+(unknown.length?'Не распознаны: '+unknown.join(', '):'');});}
+
+function unit(spec,fromBoat=false,enabled=false){
+ const bt=document.createElement('button');bt.className='unit'+(enabled?' active':'');bt.dataset.spec=spec;
+ bt.title=INFO[spec].name+(fromBoat?' — высадить':' — посадить');
+ bt.disabled=!enabled||busy||preview;
+ bt.innerHTML=`<img alt="${INFO[spec].name}" src="${img(spec,fromBoat)}">`;
+ bt.onclick=e=>{e.stopPropagation();toggleSpecies(spec,fromBoat,bt);};return bt;
+}
+const STEP=555,LAND_W=215,WATER_W=340;
+function seatCount(w){const c=level.boats[w];return Math.max(1,(c.seats||4)-1);}
+function ensureBoatSlots(w){const n=seatCount(w);if(boatSlots.length!==n)boatSlots=Array(n).fill(null);return boatSlots;}
+function boatWidth(w){return 148+40*(Math.max(2,Math.min(4,level.boats[w].seats||3))-2);}
+function layoutOffset(){const viewport=$('scroll').clientWidth,needed=level.piers*LAND_W+(level.piers-1)*WATER_W+40;return Math.max(0,(viewport-needed)/2);}
+function bankLeft(p){return layoutOffset()+20+p*STEP;}
+function boatLeft(w,pos){const snug=18;return bankLeft(w)+LAND_W-snug+(pos?WATER_W-boatWidth(w)+snug*2:0);}
+function clickBoat(w){
+ if(preview||busy)return;
+ if(game.f!==w+game.boatPos[w])return;
+ if(selectedWater!==w){setWater(w);return;}
+ move(game.boatPos[w]===0?1:-1);
+}
+function clickFerryman(){
+ if(preview||busy||Object.values(cargo).some(Boolean))return;
+ const other=[game.f-1,game.f].find(w=>w>=0&&w<level.piers-1&&w!==selectedWater&&game.boatPos[w]===game.f-w);
+ if(other!==undefined)setWater(other);
+ else flash('На этом причале нет другой доступной лодки.');
+}
+function render(){
+ const s=current(),scene=$('scene');scene.replaceChildren();const sun=document.createElement('div');sun.className='sun';scene.append(sun);['c1','c2','c3','c4','c5','c6','c7','c8'].forEach(c=>{const el=document.createElement('div');el.className='cloud '+c;scene.append(el);});[['g1',2],['g2',3],['g3',3],['g4',2],['g5',2],['g6',2]].forEach(([cls,n])=>{const g=document.createElement('div');g.className='gulls '+cls;for(let i=0;i<n;i++){const b=document.createElement('div');b.className='gull';g.append(b);}scene.append(g);});
+ const needed=level.piers*LAND_W+(level.piers-1)*WATER_W+40;scene.style.width=Math.max(needed,$('scroll').clientWidth)+'px';
+ const activeWater=chooseWater();
+ for(let p=0;p<level.piers;p++){
+  const land=document.createElement('div');land.className='land'+(p===s.f?' here':'')+(p===0?' edgeLeft':p===level.piers-1?' edgeRight':'');
+  if(p===0){land.style.left='0px';land.style.width=(bankLeft(0)+LAND_W)+'px';}
+  else if(p===level.piers-1){land.style.left=bankLeft(p)+'px';land.style.width=(parseFloat(scene.style.width)-bankLeft(p))+'px';}
+  else{land.style.left=bankLeft(p)+'px';}
+  const animals=document.createElement('div');animals.className='pierAnimals';
+  const animalsOnPier=[];
+  const cargoMap=preview?previewCargo:cargo;
+  for(let i=0;i<level.names.length;i++){
+   const id=level.names[i],count=s.banks[p][i]-(p===s.f?(cargoMap[id]||0):0)-(pendingBoarding&&pendingBoarding.pier===p&&pendingBoarding.spec===id?1:0);
+   for(let k=0;k<count;k++)animalsOnPier.push({spec:id,placeholder:false});
+   // Insert landing placeholder in exactly the same ordering as final pier render.
+   if(pendingLanding&&p===s.f&&pendingLanding.spec===id)animalsOnPier.push({spec:id,placeholder:true});
+  }
+  const frontCount=animalsOnPier.length>4?Math.ceil(animalsOnPier.length/2):animalsOnPier.length;
+  const backCount=animalsOnPier.length-frontCount;
+  const makeRow=(cls,items)=>{const row=document.createElement('div');row.className='animalRow '+cls+(backCount===0&&cls==='frontRow'?' singleRow':'');row.style.left='50%';row.style.right='auto';row.style.transform='translateX(-50%)';row.style.width=Math.max(44,items.length*43)+'px';for(const item of items){const el=unit(item.spec,false,p===s.f&&activeWater!==null);if(item.placeholder){el.classList.add('landingSlot');el.style.visibility='hidden';el.style.pointerEvents='none';}row.append(el);}return row;};
+  if(backCount)animals.append(makeRow('rearRow',animalsOnPier.slice(0,backCount)));
+  animals.append(makeRow('frontRow',animalsOnPier.slice(backCount)));
+  land.append(animals);scene.append(land);
+ }
+ for(let w=0;w<level.piers-1;w++){
+  const cap=level.boats[w];
+  const boat=document.createElement('div');boat.className='boatObj';boat.id='boat'+w;boat.style.left=boatLeft(w,s.boatPos[w])+'px';boat.style.width=boatWidth(w)+'px';
+  const stationed=s.f===w+s.boatPos[w];if(stationed&&w===activeWater)boat.classList.add('active');
+  boat.title='Нажмите на лодку для переправы; на паромщика — для пересадки';boat.addEventListener('click',()=>clickBoat(w));
+  const b=document.createElement('img');b.className='boatPic';
+  // The original complete boat sprite contains the seated ferryman and his oar.
+  b.src=(stationed&&w===activeWater)?(EXTRA_SPRITES['boat'+Math.max(2,Math.min(4,cap.seats||3))]||ASSETS['boat'+Math.max(2,Math.min(4,cap.seats||3))]):emptyBoatImg(cap);
+  boat.append(b);
+  if(stationed){
+   if(w===activeWater){const ferr=document.createElement('img');ferr.className='farmerPic';ferr.src=farmerImg(true);boat.append(ferr);const hit=document.createElement('button');hit.className='farmerHit';hit.title='Перейти в лодку соседнего водоёма';hit.setAttribute('aria-label','Пересесть в соседнюю лодку');hit.onclick=e=>{e.stopPropagation();clickFerryman();};boat.append(hit);}
+   const occupants=document.createElement('div');occupants.className='boatCargo';
+   if(w===activeWater){
+    const slots=preview?previewSlots:boatSlots;
+    const capacity=seatCount(w);
+    for(let j=0;j<capacity;j++){
+     const seat=document.createElement('div');seat.className='seatSlot';seat.dataset.seat=String(j);
+     const spec=slots[j]||null;
+     if(spec){const passenger=unit(spec,true,!preview);if(pendingLanding&&pendingSeat===j){passenger.style.visibility='hidden';passenger.style.pointerEvents='none';}seat.append(passenger);}
+     else if(pendingBoarding && pendingSeat===j && (preview ? w===previewWater : w===selectedWater)){
+       const passenger=unit(pendingBoarding.spec,true,false);
+       passenger.classList.add('boardingTarget');
+       passenger.style.visibility='hidden';
+       passenger.style.pointerEvents='none';
+       seat.append(passenger);
+     }
+     occupants.append(seat);
+    }
+   }
+   boat.append(occupants);
+  }
+  scene.append(boat);
+ }
+ $('moveCounter').textContent='Переправ: '+(preview?viewStep:history.length);
+ $('left').disabled=busy||preview||s.f===0;$('right').disabled=busy||preview||s.f===level.piers-1;
+ $('undo').disabled=busy||preview||history.length===0;$('reset').disabled=busy||preview;renderRules();
+ const sc=$('scroll'),center=bankLeft(s.f)+LAND_W/2;
+ if(center<sc.scrollLeft+110||center>sc.scrollLeft+sc.clientWidth-110)sc.scrollTo({left:Math.max(0,center-sc.clientWidth/2),behavior:'smooth'});
+}
+function renderRules(){
+ const el=$('rules');el.replaceChildren();
+ if(!level.rules.length){el.textContent='Нет опасных сочетаний';return;}
+ const pluralGen={wolf:'Волков',goat:'Коз',tiger:'Тигров',bull:'Быков',cabbage:'Капусты'};
+ const pluralNom={wolf:'Волки',goat:'Козы',tiger:'Тигры',bull:'Быки',cabbage:'Капуста'};
+ const accusative={wolf:'Волка',goat:'Козу',tiger:'Тигра',bull:'Быка',cabbage:'Капусту'};
+ for(const r of level.rules){
+  let words;
+  if(r.a==='tiger'&&r.b==='bull'&&r.condition&&r.condition[0]==='tiger'&&r.condition[1]==='>'&&r.condition[2]==='bull'){
+    words='Несколько Тигров едят Быка, в общем случае Тигры > Быков.';
+  }else{
+    words=INFO[r.a].name+' ест '+(accusative[r.b]||INFO[r.b].name);
+    if(r.condition){const [left,op,right]=r.condition;
+      words+=' при условии '+(pluralNom[left]||INFO[left].name)+' '+op+' '+(pluralGen[right]||INFO[right].name);
+    }
+  }
+  const d=document.createElement('div');d.className='rule';d.textContent=words;el.append(d);
+ }
+}
+function gallery(){
+ const el=$('gallery');el.replaceChildren();
+ catalog.forEach((l,i)=>{
+  const bt=document.createElement('button');bt.className='galleryItem'+(i===levelIndex?' selected':'');
+  const thumb=document.createElement('div');thumb.className='thumb';
+  const stack=document.createElement('div');stack.className='thumbStack';
+  const sprites=l.names.flatMap((id,j)=>Array.from({length:l.totals[j]},()=>id));
+  // Lay sprites from right to left, drawing later (leftward) animals on top.
+  // Each has the same square display slot and enough spacing for the faces.
+  sprites.forEach((id,j)=>{
+    const im=document.createElement('img');im.src=img(id);im.title=INFO[id].name;im.dataset.spec=id;
+    im.style.left=`calc(${sprites.length-1-j} * min(25px, (100% - 52px) / ${Math.max(1,sprites.length-1)}))`;
+    stack.append(im);
+  });
+  thumb.append(stack);
+  bt.append(thumb);const label=document.createElement('strong');label.textContent=l.name;bt.append(label);bt.append(document.createElement('br'));
+  const meta=document.createElement('span');meta.className='small';meta.style.whiteSpace='pre-line';const waterCount=l.piers-1, capacities=l.boats.map(x=>x.seats===null?'∞':Math.max(0,x.seats-1));
+  const same=capacities.every(n=>n===capacities[0]),first=capacities[0];
+  const ending=n=>n===1?'место':n>=2&&n<=4?'места':'мест';
+  meta.textContent=waterCount+' '+(waterCount===1?'водоём':waterCount>=2&&waterCount<=4?'водоёма':'водоёмов')+'\n'+
+    (same?(first==='∞'?'без ограничения по местам':first+' '+ending(first)+(waterCount===1?' в лодке':' в каждой лодке')):
+     'мест в лодках: '+capacities.join(', '));
+  bt.append(meta);bt.onclick=()=>{$('galleryOverlay').classList.add('hidden');loadLevel(i);};el.append(bt);
+ });
+}
+function pausePlay(){if(playTimer){clearInterval(playTimer);playTimer=null;}$('vplay').textContent='▶ Play';}
+function updateViewerInfo(){if(!solution)return;$('vslider').max=solution.states.length-1;$('vslider').value=viewStep;$('viewCount').textContent=viewStep+' / '+(solution.states.length-1);const step=solution.steps[viewStep-1];$('vinfo').textContent=step?'Переправа: причал '+(step.from+1)+' → '+(step.to+1)+'; '+(step.cargo.map((v,i)=>v?INFO[level.names[i]].name+' ×'+v:'').filter(Boolean).join(', ')||'паромщик один'):'Начальная позиция';}
+function stepWater(step){return step.to>step.from?step.from:step.to;}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+function flySpriteAsync(source,target,options){return new Promise(resolve=>flySprite(source,target,resolve,options));}
+function animateBoatPreview(w,pos){return new Promise(resolve=>{busy=true;const el=$('boat'+w);if(el){el.style.left=boatLeft(w,pos)+'px';el.style.zIndex=20;const center=boatLeft(w,pos)+74,sc=$('scroll');const toScroll=Math.max(0,center-sc.clientWidth/2);sc.scrollTo({left:toScroll,behavior:'smooth'});}setTimeout(()=>{busy=false;resolve();},1190);});}
+async function animateWaterChangePreview(newW){if(previewWater===newW)return;const old=$('boat'+previewWater),next=$('boat'+newW);if(!old||!next){previewWater=newW;render();return;}const startRect=old.getBoundingClientRect(),endRect=next.getBoundingClientRect();const ghost=document.createElement('img');ghost.src=farmerImg(false);ghost.className='walkingFarmer';Object.assign(ghost.style,{left:(startRect.left+startRect.width*0.18)+'px',top:(startRect.bottom-67)+'px',width:'54px',height:'79px',transform:'none',transition:'none',objectPosition:'center bottom'});document.body.append(ghost);busy=true;requestAnimationFrame(()=>requestAnimationFrame(()=>{ghost.style.transition='left 720ms ease-in-out, top 720ms ease-in-out';ghost.style.left=(endRect.left+endRect.width*0.18)+'px';ghost.style.top=(endRect.bottom-67)+'px';}));await sleep(760);ghost.remove();busy=false;previewWater=newW;render();}
+async function animateNextSolutionStep(){if(!solution||playerAnimating||busy||viewStep>=solution.steps.length)return false;playerAnimating=true;preview=true;const step=solution.steps[viewStep];const fromState=clone(solution.states[viewStep]);const toState=clone(solution.states[viewStep+1]);const w=stepWater(step);if(!previewState)previewState=clone(fromState);await animateWaterChangePreview(w);previewState=clone(fromState);previewCargo={};previewSlots=Array(seatCount(w)).fill(null);previewWater=w;render();await sleep(80);for(let i=0;i<step.cargo.length;i++){for(let k=0;k<step.cargo[i];k++){const spec=level.names[i];const source=document.querySelector('.land.here .pierAnimals .unit[data-spec="'+spec+'"]');const slot=previewSlots.indexOf(null);const target=document.querySelector('#boat'+w+' .boatCargo .seatSlot[data-seat="'+slot+'"]');if(source&&target){const origin=source.querySelector('img')||source;const src={rect:origin.getBoundingClientRect(),src:origin.src};const before=pierPositions();pendingBoarding={pier:previewState.f,spec};render();animatePierShuffle(before);const dest=document.querySelector('#boat'+w+' .boatCargo .seatSlot[data-seat="'+slot+'"]');await flySpriteAsync(src,dest,{spec,boarding:true});pendingBoarding=null;previewCargo[spec]=(previewCargo[spec]||0)+1;previewSlots[slot]=spec;render();await sleep(35);}}}await sleep(80);await animateBoatPreview(w,toState.boatPos[w]);const mid=clone(toState);for(let i=0;i<step.cargo.length;i++)mid.banks[toState.f][i]-=step.cargo[i];previewState=mid;previewWater=w;render();await sleep(60);for(let i=0;i<step.cargo.length;i++){for(let k=0;k<step.cargo[i];k++){const spec=level.names[i];const source=document.querySelector('#boat'+w+' .boatCargo .unit[data-spec="'+spec+'"]');if(source){const seatEl=source.closest('.seatSlot');const slot=seatEl?Number(seatEl.dataset.seat):previewSlots.indexOf(spec);pendingSeat=slot;const origin=source.querySelector('img')||source;const src={rect:origin.getBoundingClientRect(),src:origin.src};const before=pierPositions();pendingLanding={pier:previewState.f,spec};render();animatePierShuffle(before);const target=document.querySelector('.land.here .pierAnimals .landingSlot')||document.querySelector('.land.here .pierAnimals');if(target)await flySpriteAsync(src,target,{spec,boarding:false});pendingLanding=null;pendingSeat=null;previewSlots[slot]=null;previewCargo[spec]=(previewCargo[spec]||1)-1;if(previewCargo[spec]<=0)delete previewCargo[spec];const idx=level.names.indexOf(spec);previewState.banks[previewState.f][idx]++;render();await sleep(35);}}}viewStep++;previewState=clone(solution.states[viewStep]);previewCargo={};previewSlots=[];previewWater=w;render();updateViewerInfo();playerAnimating=false;return true;}
+function seek(i){pausePlay();if(!solution)return;viewStep=Math.max(0,Math.min(solution.states.length-1,Number(i)));preview=true;previewState=clone(solution.states[viewStep]);previewCargo={};previewSlots=[];previewWater=viewStep>0?stepWater(solution.steps[viewStep-1]):chooseWater()??0;render();updateViewerInfo();}
+function showSolution(states,steps){solution={states,steps};$('viewer').classList.remove('hidden');viewStep=0;preview=true;previewState=clone(states[0]);previewCargo={};previewSlots=[];previewWater=0;seek(0);}
+function solve(){pausePlay();solverToken++;const token=solverToken;preview=false;solution=null;render();$('solve').disabled=true;$('stop').classList.remove('hidden');$('solveStatus').textContent='Поиск BFS...';const start=clone(game),nodes=[{s:start,prev:-1,step:null}],seen=new Set([hash(start)]);let head=0,found=-1;const started=performance.now(),maxStates=600000;
+ function chunk(){if(token!==solverToken)return;const t=performance.now();while(head<nodes.length&&performance.now()-t<28){const idx=head++,s=nodes[idx].s;if(won(level,s)){found=idx;break;}for(let w of [s.f-1,s.f]){if(w<0||w>=level.piers-1||s.boatPos[w]!==s.f-w)continue;for(const arr of listCargo(level,s,w)){const ns=crossed(level,s,w,arr);if(!ns)continue;const h=hash(ns);if(seen.has(h))continue;seen.add(h);nodes.push({s:ns,prev:idx,step:{from:s.f,to:ns.f,cargo:arr}});if(nodes.length>maxStates)break;}if(nodes.length>maxStates)break;}if(nodes.length>maxStates)break;}if(found!==-1){const states=[],steps=[];let v=found;while(v>=0){states.push(nodes[v].s);if(nodes[v].step)steps.push(nodes[v].step);v=nodes[v].prev;}states.reverse();steps.reverse();$('solveStatus').textContent='Ходов в решении: '+steps.length+' · Состояний: '+nodes.length+' · Время поиска: '+((performance.now()-started)/1000).toFixed(2)+' с';showSolution(states,steps);done();return;}if(head>=nodes.length||nodes.length>maxStates){$('solveStatus').textContent=head>=nodes.length?'Решение не найдено.':'Поиск прерван: лимит '+maxStates+' состояний.';done();return;}$('solveStatus').textContent='Поиск BFS · проверено '+head+' · найдено '+nodes.length;setTimeout(chunk,0);}
+ function done(){$('solve').disabled=false;$('stop').classList.add('hidden');}chunk();}
+$('winRestart').onclick=()=>loadLevel(levelIndex);$('winNext').onclick=()=>{if(levelIndex<catalog.length-1)loadLevel(levelIndex+1);};$('winClose').onclick=hideVictory;
+$('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('undo').onclick=undo;$('reset').onclick=()=>loadLevel(levelIndex);$('galleryBtn').onclick=()=>{gallery();$('galleryOverlay').classList.remove('hidden');};$('closeGallery').onclick=()=>$('galleryOverlay').classList.add('hidden');$('editBtn').onclick=()=>{$('source').value=sourceText;$('editorOverlay').classList.remove('hidden');};$('closeEditor').onclick=()=>$('editorOverlay').classList.add('hidden');$('solve').onclick=solve;$('stop').onclick=()=>{solverToken++;$('solve').disabled=false;$('stop').classList.add('hidden');$('solveStatus').textContent='Поиск остановлен.';};$('vfirst').onclick=()=>seek(0);$('vprev').onclick=()=>seek(viewStep-1);$('vnext').onclick=()=>{if(preview&&solution&&viewStep<solution.states.length-1)animateNextSolutionStep();};$('vlast').onclick=()=>seek(solution.states.length-1);$('vslider').oninput=e=>seek(e.target.value);$('vclose').onclick=()=>{pausePlay();preview=false;previewState=null;previewCargo={};$('viewer').classList.add('hidden');render();};$('vplay').onclick=async()=>{if(playTimer){pausePlay();return;}if(viewStep===solution.states.length-1)seek(0);$('vplay').textContent='Ⅱ Pause';playTimer=setTimeout(async function loop(){if(!playTimer)return;const moved=await animateNextSolutionStep();if(!moved||viewStep>=solution.states.length-1){pausePlay();return;}playTimer=setTimeout(loop,220);},0);};
+let sourceText=DEFAULT_SOURCE;try{sourceText=localStorage.getItem('ferryman_catalog_v110')||DEFAULT_SOURCE;}catch(e){}try{const parsed=parse(sourceText);catalog=parsed.levels;globalRules=parsed.rules;}catch(e){sourceText=DEFAULT_SOURCE;const parsed=parse(sourceText);catalog=parsed.levels;globalRules=parsed.rules;}
+$('apply').onclick=()=>{try{let obj=parse($('source').value);catalog=obj.levels;globalRules=obj.rules;sourceText=$('source').value;try{localStorage.setItem('ferryman_catalog_v110',sourceText);}catch(e){}$('editorOverlay').classList.add('hidden');loadLevel(0);}catch(e){$('editorStatus').textContent=e.message;}};
+$('restore').onclick=()=>{$('source').value=DEFAULT_SOURCE;$('editorStatus').textContent='Исходный текст восстановлен в редакторе. Нажмите «Применить». ';};
+$('download').onclick=()=>{const b=new Blob([$('source').value],{type:'text/plain;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='Ferryman_levels.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+loadLevel(0);
+</script></body></html>
