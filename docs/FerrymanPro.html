@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ferryman Pro v1.26</title><style>
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ferryman Pro v1.42</title><style>
 :root{--bg:#12202b;--panel:#203442;--accent:#f4c47d;--aqua:#a4dbe4;--text:#f4f1e6;--muted:#bdcdd0}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#12232f,#101923);color:var(--text);font:15px system-ui,Segoe UI,sans-serif}button,textarea{font:inherit}button{cursor:pointer;border:1px solid #71828a;background:#344d5c;color:white;border-radius:9px;padding:8px 12px}button:hover:not(:disabled){background:#446777}button:disabled{opacity:.35;cursor:default}.primary{background:#ddae68;color:#242322;font-weight:800;border-color:#ffe1a4}.app{max-width:1520px;margin:auto;padding:15px}.head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.head h1{font-size:25px;margin:0;color:#fbd39b}.pill{border:1px solid #577686;border-radius:20px;padding:5px 12px;color:var(--aqua)}.spacer{flex:1}.panel{background:var(--panel);border:1px solid #405a67;border-radius:12px;padding:13px}.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.small{font-size:13px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:12px}.sceneWrap{position:relative;overflow:hidden;border:2px solid #61808d;border-radius:12px;background:#8dc7ca}.sceneScroll{overflow:auto;scrollbar-color:#728f92 #376172;scrollbar-width:auto}.scene{height:440px;min-width:100%;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(#95d0df 0%,#d7e0be 45%,#86b6bb 48%,#5ca0bb 49%,#3f88ab 66%,#226d8c 100%)}.scene:before{content:"";position:absolute;left:0;right:0;top:50%;bottom:0;pointer-events:none;opacity:.42;background:repeating-linear-gradient(180deg,rgba(255,255,255,.16) 0 2px,rgba(255,255,255,0) 2px 16px),radial-gradient(ellipse at 18% 18%,rgba(255,255,255,.16) 0 10%,transparent 11%),radial-gradient(ellipse at 52% 30%,rgba(255,255,255,.12) 0 9%,transparent 10%),radial-gradient(ellipse at 82% 20%,rgba(255,255,255,.14) 0 8%,transparent 9%);background-size:auto,190px 44px,240px 52px,210px 46px;background-repeat:repeat,repeat,repeat,repeat}.scene:after{content:"";position:absolute;left:0;right:0;top:53%;bottom:0;pointer-events:none;opacity:.35;background:repeating-radial-gradient(ellipse at 10% 0%,rgba(255,255,255,.26) 0 1px,rgba(255,255,255,0) 1px 22px),repeating-radial-gradient(ellipse at 70% 0%,rgba(255,255,255,.18) 0 1px,rgba(255,255,255,0) 1px 26px);background-size:230px 40px,280px 46px;background-repeat:repeat}.sun{pointer-events:none;position:absolute;top:26px;left:50%;width:72px;height:72px;border-radius:50%;background:#ffefb1;box-shadow:0 0 45px #ffefb1}.land{position:absolute;bottom:57px;height:112px;width:215px;border:5px solid #71654b;border-radius:17px 17px 0 0;background:repeating-linear-gradient(90deg,#83a66b 0 28px,#78a064 28px 55px);box-shadow:inset 0 -21px #817c5c,0 16px #595b55}.land.here{filter:drop-shadow(0 0 6px #fff2a4)}.pierLabel{position:absolute;top:17px;left:13px;color:#253f3e;background:#f2e4b3d9;border-radius:8px;padding:4px 8px;font-weight:800;font-size:13px;white-space:nowrap}.pierAnimals{position:absolute;left:6px;right:5px;bottom:55px;display:flex;gap:0;flex-wrap:wrap;justify-content:center;align-items:flex-end;align-content:end;min-height:66px;max-height:95px;overflow:visible}.sprite{display:block;object-fit:contain;image-rendering:pixelated;pointer-events:none}.unit{display:inline-flex;flex-direction:column;align-items:center;justify-content:end;background:transparent;border:0;padding:0;min-width:42px;cursor:pointer;position:relative}.unit img{width:48px;height:50px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(1px 2px #1e39444f)}.unit:hover:not(:disabled){transform:none}.unit:disabled{cursor:default;opacity:1}.unit:disabled img{opacity:1;filter:drop-shadow(1px 2px #1e39444f)}.unit b{display:none}.unit.active{outline:none;background:transparent}.unit,.unit:hover,.unit:focus,.unit:focus-visible{border:none!important;outline:none!important;box-shadow:none!important;background:transparent!important;transform:none!important}.waterLabel{position:absolute;bottom:11px;color:#e8f4f1;text-shadow:0 2px 3px #15354a;font-size:12px;font-weight:800;text-align:center}.boatObj{position:absolute;bottom:73px;width:148px;height:95px;transition:left 1.15s ease-in-out;z-index:6}.boatObj img.boatPic{width:100%;height:76px;position:absolute;bottom:0;left:0;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(1px 5px 2px #133d585b)}.farmerPic{position:absolute;opacity:0;width:54px;height:79px;left:29px;right:auto;object-fit:contain;image-rendering:pixelated;bottom:24px;right:7px;z-index:5}.boatCargo{position:absolute;bottom:25px;left:46%;right:5px;display:flex;align-items:end;justify-content:center;z-index:4}.boatCargo .unit{min-width:28px;max-width:34px}.boatCargo .unit img{width:38px;height:48px}.boatCargo .unit b{display:none}.boatCargo .unit img{object-fit:contain}.boatObj.active{filter:drop-shadow(0 0 6px #fff3a5)}.sceneControls{display:flex;gap:8px;align-items:center;justify-content:center;padding:10px;background:#163e50f2;border-top:1px solid #86b6b9}.sceneControls button{font-size:19px;font-weight:900;min-width:54px;padding:7px 11px}.sceneControls .tiny{font-size:14px}.status{padding:9px 12px;border-radius:9px;min-height:39px;background:#1a3948;margin-top:9px;color:#d8edef}.status.bad{background:#663d36;color:#ffe1d6}.status.good{background:#345c41;color:#e1f7da}.rules{display:grid;gap:7px;margin-top:9px}.rule{font-size:13px;background:#294351;border-radius:8px;padding:8px}.rule strong{color:#f2ce92}.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px;margin-top:12px}.galleryItem{background:#263e4c;border:1px solid #54727d;border-radius:11px;padding:11px;text-align:left}.galleryItem.selected{border-color:#ffd28b;background:#40505a}.thumb{display:flex;min-height:68px;align-items:center;gap:1px;background:linear-gradient(#a8d7cf 0 50%,#7da96b 50%);padding:8px;border-radius:8px;margin-bottom:7px}.thumb img{height:44px;width:36px;object-fit:contain;image-rendering:pixelated}.thumb span{font-weight:800;font-size:11px;color:#163441;margin-left:auto}.overlay{position:fixed;inset:0;background:#06151bdf;z-index:40;display:flex;align-items:center;justify-content:center;padding:15px}.dialog{max-width:1100px;width:100%;max-height:95vh;overflow:auto;background:#1d3440;border:1px solid #6e8a8f;border-radius:15px;padding:16px}.hidden{display:none!important}.dialogHead{display:flex;gap:10px;align-items:center;justify-content:space-between}.viewer{padding:11px;background:#253d48;border-radius:10px;margin-top:10px}.viewer input{width:100%}textarea{width:100%;min-height:340px;background:#0d202a;color:#e0f2e5;border:1px solid #5b7781;border-radius:9px;resize:vertical;padding:12px;font:13px/1.5 Consolas,monospace}.help{margin-top:10px;color:#c3d7dc;font-size:13px;line-height:1.5}#levelTitle{font-weight:700}#solveStatus{font-size:13px;color:#bed9df;margin-top:8px}@media(max-width:1000px){.layout{grid-template-columns:1fr}.scene{height:410px}.side{order:2}}
 .flightSprite{position:fixed;z-index:999;pointer-events:none;object-fit:contain;image-rendering:pixelated;transition:transform .45s ease-in-out,opacity .45s ease-in-out}.walkingFarmer{position:fixed;z-index:998;pointer-events:none;object-fit:contain;image-rendering:pixelated;transition:transform .68s ease-in-out}
 .land.edgeLeft{border-left:0;border-top-left-radius:0;border-bottom-left-radius:0}
@@ -44,7 +44,7 @@
 .pierAnimals .unit img,.boatCargo .unit img{object-position:center bottom}
 .flightSprite{object-position:center bottom}
 
-/* v1.26: only the new pixel boats; seated ferryman composed separately */
+/* v1.42: only the new pixel boats; seated ferryman composed separately */
 .boatObj .farmerPic{opacity:1;width:51px;height:67px;bottom:23px;left:15px;right:auto;z-index:6;object-position:center bottom}
 .boatObj .boatPic{bottom:0}
 .pierAnimals .unit[data-spec="tiger"] img{width:58px;height:57px}
@@ -107,7 +107,7 @@
 .boatCargo .seatSlot .unit{pointer-events:auto;flex:0 0 34px;min-width:34px;max-width:34px;width:34px;margin:0}
 .boatCargo .seatSlot .unit img{object-position:center bottom}
 
-/* v1.26: solve in the lower-right under the game; viewer above instructions */
+/* v1.42: solve in the lower-right under the game; viewer above instructions */
 .sceneControlSpacer{flex:1;min-width:8px}
 .sceneControls #solve{margin-left:auto;white-space:nowrap}
 .sceneControls #stop{white-space:nowrap}
@@ -116,7 +116,7 @@
 #solveStatus{margin-top:8px;margin-bottom:10px}
 .help{clear:both}
 
-/* Ferryman Pro v1.26: the game controls are centered, independently of Solve. */
+/* Ferryman Pro v1.42: the game controls are centered, independently of Solve. */
 .sceneControls{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center;justify-items:stretch}
 .sceneButtons{grid-column:2;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
 .sceneButtons .controlGap{width:15px;flex:none}
@@ -124,25 +124,90 @@
 .sceneControls #solve{margin-left:0;font-size:14px;min-width:auto;padding:8px 10px}
 .sceneControls #stop{font-size:14px;min-width:auto;padding:8px 10px}
 @media(max-width:680px){.sceneControls{grid-template-columns:minmax(0,1fr);row-gap:8px}.sceneButtons{grid-column:1;grid-row:1}.solveButtons{grid-column:1;grid-row:2;justify-content:center}}
-/* v1.26: 20 px from the outside edge of every bank (5px border + 15px inset). */
+/* v1.42: 20 px from the outside edge of every bank (5px border + 15px inset). */
 .land .pierAnimals{left:15px;right:15px}
 .land.edgeLeft .pierAnimals{right:15px}
 .land.edgeRight .pierAnimals{left:15px}
-</style></head><body><div class="app"><div class="head"><h1>Ferryman Pro <span style="font-size:13px;color:#bdd0d5">v1.26</span></h1><span class="pill" id="levelTitle">Classic 1</span><span class="pill" id="moveCounter">Переправ: 0</span><div class="spacer"></div><button id="galleryBtn">Галерея уровней</button><button id="editBtn">Текст уровней</button></div><div class="layout"><div><div class="sceneWrap"><div id="scroll" class="sceneScroll"><div id="scene" class="scene"><div class="sun"></div></div></div><div id="winOverlay" class="winOverlay hidden" role="dialog" aria-modal="true" aria-labelledby="winHeading"><div class="winDialog"><h2 id="winHeading">Победа!</h2><div class="winStats"><div class="winStat"><span>Затраченное время</span><strong id="winTime">00:00</strong></div><div class="winStat"><span>Переправ</span><strong id="winCrossings">0</strong></div></div><div class="winButtons"><button id="winRestart">Начать с начала</button><button id="winNext" class="primary">Следующий уровень</button><button id="winClose">Закрыть</button></div></div></div><div class="sceneControls"><div class="sceneButtons"><button id="left" aria-label="Переплыть налево">◀</button><button id="right" aria-label="Переплыть направо">▶</button><span class="controlGap" aria-hidden="true"></span><button class="tiny" id="undo">↶ Undo</button><button class="tiny" id="reset">⟳ Reset</button></div><div class="solveButtons"><button class="primary" id="solve">Найти решение</button><button id="stop" class="hidden">Стоп</button></div></div></div><div class="status" id="status">Кликни по животному, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.</div><div class="viewer hidden" id="viewer"><div class="row"><strong>Просмотр решения</strong><span class="spacer"></span><span id="viewCount"></span><button id="vfirst">|◀</button><button id="vprev">◀</button><button id="vplay">▶ Play</button><button id="vnext">▶</button><button id="vlast">▶|</button><button id="vclose">Закрыть</button></div><input id="vslider" type="range" min="0" value="0"><div class="small" id="vinfo"></div></div><div id="solveStatus"></div><div class="help">Прокручивай сцену горизонтально. Нажатие на животное у паромщика сажает его в выбранную лодку; повторное нажатие в лодке высаживает обратно. Клик по лодке переправляет на соседний берег, клик по паромщику на промежуточном причале пересаживает его в другую лодку. Стрелки также переправляют. На промежуточном причале нажми на паромщика, чтобы он перешёл в соседнюю лодку. После переправы пассажиры остаются в лодке, пока ты их не высадишь. Паромщик занимает одно место.</div></div><div class="panel side"><h3>Правила уровня</h3><div id="rules" class="rules"></div></div></div></div><div class="overlay hidden" id="galleryOverlay"><div class="dialog"><div class="dialogHead"><h2>Галерея уровней</h2><button id="closeGallery">Закрыть</button></div><div id="gallery" class="gallery"></div></div></div><div class="overlay hidden" id="spritesOverlay"><div class="dialog"><div class="dialogHead"><h2>Спрайты Ferryman</h2><button id="closeSprites">Закрыть</button></div><p class="small">По умолчанию используется приложенный пиксельный набор. При желании загрузи другие изображения (можно сразу несколько PNG/WebP). Для берега: <code>wolf.png</code>, <code>goat.png</code>, <code>tiger.png</code>, <code>bull.png</code>, <code>cabbage.png</code>, <code>ferryman.png</code>. Для лодки: <code>wolf_sit.png</code>, <code>goat_sit.png</code>, <code>tiger_sit.png</code>, <code>bull_sit.png</code>, <code>ferryman_sit.png</code>. Лодки: <code>boat_2_seats.png</code>, <code>boat_3_seats.png</code>, <code>boat_4_seats.png</code>. В случае отсутствия отдельных файлов временно используются прежние изображения. Выбранные файлы применяются сразу в этом окне браузера.</p><input id="spriteFiles" type="file" accept="image/png,image/webp" multiple><p id="spriteStatus" class="small"></p></div></div><div class="overlay hidden" id="editorOverlay"><div class="dialog"><div class="dialogHead"><h2>Текстовый каталог Ferryman</h2><button id="closeEditor">Закрыть</button></div><p class="small">Общий блок FERRYMAN RULES — в начале файла. Для каждого уровня применяются только правила, содержащие присутствующие виды. Вместимость лодок — <code>seats</code>, включая паромщика; дополнительно можно задать <code>weight</code> для суммарного веса пассажиров.</p><textarea id="source"></textarea><div class="row"><button class="primary" id="apply">Применить каталог</button><button id="download">Сохранить TXT</button><button id="restore">Восстановить исходные 10</button></div><p class="small" id="editorStatus"></p></div></div>
+.levelSwitch{display:flex;gap:8px;justify-content:flex-end;align-items:center;margin-bottom:8px}.levelSwitch button{min-width:135px}
+</style></head><body><div class="app"><div class="head"><h1>Ferryman Pro <span style="font-size:13px;color:#bdd0d5">v1.42</span></h1><span class="pill" id="levelTitle">Classic 1</span><span class="pill" id="moveCounter">Переправ: 0</span><div class="spacer"></div><button id="galleryBtn">Галерея уровней</button></div><div class="layout"><div><div class="levelSwitch"><button id="prevLevel" aria-label="Предыдущий уровень">◀ Предыдущий</button><button id="nextLevel" aria-label="Следующий уровень">Следующий ▶</button></div><div class="sceneWrap"><div id="scroll" class="sceneScroll"><div id="scene" class="scene"><div class="sun"></div></div></div><div id="winOverlay" class="winOverlay hidden" role="dialog" aria-modal="true" aria-labelledby="winHeading"><div class="winDialog"><h2 id="winHeading">Победа!</h2><div class="winStats"><div class="winStat"><span>Затраченное время</span><strong id="winTime">00:00</strong></div><div class="winStat"><span>Переправ</span><strong id="winCrossings">0</strong></div></div><div class="winButtons"><button id="winRestart">Начать с начала</button><button id="winNext" class="primary">Следующий уровень</button><button id="winClose">Закрыть</button></div></div></div><div class="sceneControls"><div class="sceneButtons"><button id="left" aria-label="Переплыть налево">◀</button><button id="right" aria-label="Переплыть направо">▶</button><span class="controlGap" aria-hidden="true"></span><button class="tiny" id="undo">↶ Undo</button><button class="tiny" id="reset">⟳ Reset</button></div><div class="solveButtons"><button class="primary" id="solve">Найти решение</button><button id="stop" class="hidden">Стоп</button></div></div></div><div class="status" id="status">Кликни по животному, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.</div><div class="viewer hidden" id="viewer"><div class="row"><strong>Просмотр решения</strong><span class="spacer"></span><span id="viewCount"></span><button id="vfirst">|◀</button><button id="vprev">◀</button><button id="vplay">▶ Play</button><button id="vnext">▶</button><button id="vlast">▶|</button><button id="vclose">Закрыть</button></div><input id="vslider" type="range" min="0" value="0"><div class="small" id="vinfo"></div></div><div id="solveStatus"></div><div class="help">Прокручивай сцену горизонтально. Нажатие на животное у паромщика сажает его в выбранную лодку; повторное нажатие в лодке высаживает обратно. Клик по лодке переправляет на соседний берег, клик по паромщику на промежуточном причале пересаживает его в другую лодку. Стрелки также переправляют. На промежуточном причале нажми на паромщика, чтобы он перешёл в соседнюю лодку. После переправы пассажиры остаются в лодке, пока ты их не высадишь. Паромщик занимает одно место.</div></div><div class="panel side"><h3>Правила уровня</h3><div id="rules" class="rules"></div></div></div></div><div class="overlay hidden" id="galleryOverlay"><div class="dialog"><div class="dialogHead"><h2>Галерея уровней</h2><button id="closeGallery">Закрыть</button></div><div id="gallery" class="gallery"></div></div></div><div class="overlay hidden" id="spritesOverlay"><div class="dialog"><div class="dialogHead"><h2>Спрайты Ferryman</h2><button id="closeSprites">Закрыть</button></div><p class="small">По умолчанию используется приложенный пиксельный набор. При желании загрузи другие изображения (можно сразу несколько PNG/WebP). Для берега: <code>snake.png</code>, <code>mongoose.png</code>, <code>wolf.png</code>, <code>goat.png</code>, <code>tiger.png</code>, <code>bull.png</code>, <code>cabbage.png</code>, <code>ferryman.png</code>. Для лодки: <code>snake_sit.png</code>, <code>mongoose_sit.png</code>, <code>wolf_sit.png</code>, <code>goat_sit.png</code>, <code>tiger_sit.png</code>, <code>bull_sit.png</code>, <code>ferryman_sit.png</code>. Лодки: <code>boat_2_seats.png</code>, <code>boat_3_seats.png</code>, <code>boat_4_seats.png</code>. В случае отсутствия отдельных файлов временно используются прежние изображения. Выбранные файлы применяются сразу в этом окне браузера.</p><input id="spriteFiles" type="file" accept="image/png,image/webp" multiple><p id="spriteStatus" class="small"></p></div></div>
 <script>
 'use strict';
-const ASSETS={"farmer":"image/farmer.png","wolf":"image/wolf.png","goat":"image/goat.png","tiger":"image/tiger.png","bull":"image/bull.png","cabbage":"image/cabbage.png","farmer_sit":"image/farmer_sit.png","wolf_sit":"image/wolf_sit.png","goat_sit":"image/goat_sit.png","tiger_sit":"image/tiger_sit.png","bull_sit":"image/bull_sit.png","cabbage_sit":"image/cabbage_sit.png","boat2":"image/boat2.png","boat3":"image/boat3.png","boat4":"image/boat4.png","empty_boat2":"image/empty_boat2.png","empty_boat3":"image/empty_boat3.png","empty_boat4":"image/empty_boat4.png"};
-const DEFAULT_SOURCE="FERRYMAN RULES\nrule: wolf_goat | wolf > goat if wolf >= goat\nrule: tiger_goat | tiger > goat\nrule: goat_cabbage | goat > cabbage\nrule: bull_cabbage | bull > cabbage\nrule: tiger_bull | tiger > bull if tiger > bull\nEND RULES\n\nFERRYMAN\nname: Classic 1\npiers: 2\nboats: seats=2\nstart: wolf=1, goat=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 2\npiers: 2\nboats: seats=2\nstart: wolf=2, goat=1\nEND\n\nFERRYMAN\nname: Classic 3\npiers: 3\nboats: seats=2 | seats=2\nstart: wolf=1, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 4\npiers: 2\nboats: seats=3\nstart: wolf=3, goat=3\nEND\n\nFERRYMAN\nname: Classic 5\npiers: 2\nboats: seats=3\nstart: wolf=2, tiger=1, goat=2\nEND\n\nFERRYMAN\nname: Classic 6\npiers: 3\nboats: seats=3 | seats=3\nstart: tiger=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 7\npiers: 2\nboats: seats=3\nstart: wolf=1, tiger=1, goat=3, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 8\npiers: 2\nboats: seats=2\nstart: tiger=2, bull=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 9\npiers: 2\nboats: seats=3\nstart: bull=1, wolf=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 10\npiers: 3\nboats: seats=3 | seats=3\nstart: bull=2, tiger=2, goat=1, cabbage=1\nEND";
-const INFO={wolf:{name:'Волк',weight:2},goat:{name:'Коза',weight:1},tiger:{name:'Тигр',weight:2},bull:{name:'Бык',weight:2},cabbage:{name:'Капуста',weight:1}};
+const ASSETS={"farmer":"image/farmer.png","wolf":"image/wolf.png","goat":"image/goat.png","tiger":"image/tiger.png","bull":"image/bull.png","cabbage":"image/cabbage.png","snake":"image/snake.png","mongoose":"image/mongoose.png","wolf_sit":"image/wolf_sit.png","goat_sit":"image/goat_sit.png","tiger_sit":"image/tiger_sit.png","bull_sit":"image/bull_sit.png","cabbage_sit":"image/cabbage_sit.png","snake_sit":"image/snake_sit.png","mongoose_sit":"image/mongoose_sit.png","boat2":"image/boat2.png","boat3":"image/boat3.png","boat4":"image/boat4.png"};
+const DEFAULT_SOURCE="FERRYMAN RULES\nrule: wolf_goat | wolf > goat if wolf >= goat\nrule: tiger_goat | tiger > goat\nrule: goat_cabbage | goat > cabbage\nrule: bull_cabbage | bull > cabbage\nrule: tiger_bull | tiger > bull if tiger > bull\nrule: snake_wolf | snake > wolf\nrule: snake_goat | snake > goat\nrule: snake_tiger | snake > tiger\nrule: mongoose_snake | mongoose > snake\nEND RULES\n\nFERRYMAN\nname: Classic 1\npiers: 2\nboats: seats=2\nstart: wolf=1, goat=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 2\npiers: 2\nboats: seats=2\nstart: wolf=2, goat=1\nEND\n\nFERRYMAN\nname: Classic 3\npiers: 3\nboats: seats=2 | seats=2\nstart: wolf=1, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 4\npiers: 2\nboats: seats=3\nstart: wolf=3, goat=3\nEND\n\nFERRYMAN\nname: Classic 5\npiers: 2\nboats: seats=3\nstart: wolf=2, tiger=1, goat=2\nEND\n\nFERRYMAN\nname: Classic 6\npiers: 3\nboats: seats=3 | seats=3\nstart: tiger=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 7\npiers: 2\nboats: seats=3\nstart: wolf=1, tiger=1, goat=3, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 8\npiers: 2\nboats: seats=2\nstart: tiger=2, bull=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 9\npiers: 2\nboats: seats=3\nstart: bull=1, wolf=2, goat=2, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 10\npiers: 3\nboats: seats=3 | seats=3\nstart: bull=2, tiger=2, goat=1, cabbage=1\nEND\n\nFERRYMAN\nname: Classic 11\npiers: 2\nboats: seats=3\nstart: wolf=1, goat=1, tiger=1, cabbage=1, snake=1\nEND\n\nFERRYMAN\nname: Classic 12\npiers: 3\nboats: seats=2 | seats=2\nstart: pier1: goat=1, cabbage=1, tiger=1; pier2: cabbage=1, tiger=1; pier3: tiger=1\n# Распределение по снимкам 12a-12c, требует сверки с первым кадром\nEND\n\nFERRYMAN\nname: Classic 13\npiers: 3\nboats: seats=3 | seats=3\nstart: wolf=2, goat=3, cabbage=1, snake=1\nEND\n\nFERRYMAN\nname: Classic 14\npiers: 2\nboats: seats=2\nstart: mongoose=1, goat=1, snake=1\nEND\n\nFERRYMAN\nname: Classic 15\npiers: 3\nboats: seats=2 | seats=2\nstart: pier1: wolf=1, goat=2; pier2: snake=1; pier3: -\nEND\n\nFERRYMAN\nname: Classic 16\npiers: 3\nboats: seats=2 | seats=2\nstart: pier1: mongoose=1, goat=1, snake=1; pier2: goat=1; pier3: wolf=1\n# Распределение по снимкам 16a-16c, требует сверки с первым кадром\nEND\n\nFERRYMAN\nname: Classic 17\npiers: 3\nboats: seats=3 | seats=3\nstart: snake=1, goat=2, wolf=1, tiger=1\nEND\n\nFERRYMAN\nname: Classic 18\npiers: 2\nboats: seats=3\nstart: bull=1, tiger=2, wolf=2, goat=1, cabbage=2\n# Уточнено: одна коза\nEND\n\nFERRYMAN\nname: Classic 19\npiers: 3\nboats: seats=3 | seats=3\nstart: pier1: cabbage=2, goat=1, tiger=1; pier2: snake=1; pier3: tiger=1\n# Распределение по снимкам 19a-19c, требует сверки с первым кадром\nEND";
+const INFO={wolf:{name:'Волк',weight:2},goat:{name:'Коза',weight:1},tiger:{name:'Тигр',weight:2},bull:{name:'Бык',weight:2},cabbage:{name:'Капуста',weight:1},snake:{name:'Змея',weight:1},mongoose:{name:'Мангуст',weight:1}};
 const $=id=>document.getElementById(id);
-let pierFacing={},catalog=[],globalRules=[],levelIndex=0,level=null,game=null,history=[],cargo={},selectedWater=null,busy=false,solution=null,viewStep=0,playTimer=null,solverToken=0,preview=false,levelStartedAt=Date.now(),previewState=null,previewCargo={},previewWater=0,playerAnimating=false,pendingLanding=null,pendingBoarding=null,pendingSeat=null,boatSlots=[],previewSlots=[];
+let pierFacing={},catalog=[],globalRules=[],levelIndex=0,level=null,game=null,history=[],cargo={},selectedWater=null,busy=false,solution=null,viewStep=0,playTimer=null,solverToken=0,preview=false,levelStartedAt=Date.now(),previewState=null,previewCargo={},previewWater=0,playerAnimating=false,playbackRunning=false,playbackEpoch=0,pendingLanding=null,pendingBoarding=null,pendingSeat=null,boatSlots=[],previewSlots=[];
 function clone(s){return JSON.parse(JSON.stringify(s));}
 function parse(text){
- const rulesBlock=text.match(/FERRYMAN RULES\s*\n([\s\S]*?)\nEND RULES/i);if(!rulesBlock)throw Error('Нет блока FERRYMAN RULES');
- const rules=[];for(const line of rulesBlock[1].split(/\r?\n/)){const l=line.trim();if(!l||l.startsWith('#'))continue;let m=l.match(/^rule:\s*([\w-]+)\s*\|\s*(\w+)\s*>\s*(\w+)(?:\s+if\s+(\w+)\s*(>=|>|<=|<|==)\s*(\w+))?$/i);if(!m)throw Error('Ошибка в правиле: '+l);rules.push({id:m[1],a:m[2],b:m[3],condition:m[4]?[m[4],m[5],m[6]]:null});}
- const regex=/^FERRYMAN\s*\n([\s\S]*?)\nEND\s*$/gm;let m,levels=[];while((m=regex.exec(text))){const lines=m[1].split(/\r?\n/),fields={};for(const line of lines){let x=line.match(/^([\w]+):\s*(.*?)\s*$/);if(x)fields[x[1].toLowerCase()]=x[2];}let piers=Number(fields.piers),names=[],totals=[];if(!Number.isInteger(piers)||piers<2||piers>12)throw Error('piers должен быть от 2 до 12');for(const part of (fields.start||'').split(',')){let q=part.trim().match(/^(\w+)\s*=\s*(\d+)$/);if(!q)throw Error('Неверный start: '+part);if(!INFO[q[1]])throw Error('Неизвестный объект '+q[1]);if(+q[2]>0){names.push(q[1]);totals.push(+q[2]);}}let boats=(fields.boats||'').split('|').map(x=>{let ss=x.match(/seats\s*=\s*(\d+)/),ww=x.match(/weight\s*=\s*(\d+)/);if(!ss&&!ww)throw Error('Лодке нужны seats или weight');return {seats:ss?+ss[1]:null,weight:ww?+ww[1]:null};});if(boats.length!==piers-1)throw Error('Для '+piers+' причалов требуется '+(piers-1)+' лодок');const applicable=rules.filter(r=>names.includes(r.a)&&names.includes(r.b));levels.push({name:fields.name||'Без названия',piers,names,totals,boats,rules:applicable});}if(!levels.length)throw Error('Нет уровней FERRYMAN');return {levels,rules};
+ const rulesBlock=text.match(/FERRYMAN RULES\s*\n([\s\S]*?)\nEND RULES/i);
+ if(!rulesBlock)throw Error('Нет блока FERRYMAN RULES');
+ const rules=[];
+ for(const line of rulesBlock[1].split(/\r?\n/)){
+  const l=line.trim();if(!l||l.startsWith('#'))continue;
+  const m=l.match(/^rule:\s*([\w-]+)\s*\|\s*(\w+)\s*>\s*(\w+)(?:\s+if\s+(\w+)\s*(>=|>|<=|<|==)\s*(\w+))?$/i);
+  if(!m)throw Error('Ошибка в правиле: '+l);
+  rules.push({id:m[1],a:m[2],b:m[3],condition:m[4]?[m[4],m[5],m[6]]:null});
+ }
+ const regex=/^FERRYMAN\s*\n([\s\S]*?)\nEND\s*$/gm;let m,levels=[];
+ while((m=regex.exec(text))){
+  const fields={};for(const line of m[1].split(/\r?\n/)){
+   let x=line.match(/^([\w]+):\s*(.*?)\s*$/);if(x)fields[x[1].toLowerCase()]=x[2];
+  }
+  let piers=Number(fields.piers);
+  if(!Number.isInteger(piers)||piers<2||piers>12)throw Error('piers должен быть от 2 до 12');
+  const banksByPier=Array.from({length:piers},()=>({}));
+  const start=fields.start||'';
+  // Legacy: start: wolf=1, goat=2  → everything on the first pier.
+  // Extended: start: pier1: wolf=1; pier2: goat=2; pier3: -
+  const parseAnimals=(raw,p)=>{
+   const segment=raw.trim();if(!segment||segment==='-')return;
+   for(const part of segment.split(',')){
+    let q=part.trim().match(/^(\w+)\s*=\s*(\d+)$/);
+    if(!q)throw Error('Неверный start у причала '+(p+1)+': '+part);
+    if(!INFO[q[1]])throw Error('Неизвестный объект '+q[1]);
+    banksByPier[p][q[1]]=(banksByPier[p][q[1]]||0)+Number(q[2]);
+   }
+  };
+  if(/^pier\d+\s*:/i.test(start)){
+   for(const part of start.split(';')){
+    const q=part.trim().match(/^pier(\d+)\s*:\s*(.*)$/i);
+    if(!q)throw Error('Неверный причал в start: '+part);
+    const p=Number(q[1])-1;if(p<0||p>=piers)throw Error('Несуществующий причал '+q[1]);
+    parseAnimals(q[2],p);
+   }
+  }else parseAnimals(start,0);
+  const names=Object.keys(INFO).filter(id=>banksByPier.some(b=>b[id]>0));
+  const totals=names.map(id=>banksByPier.reduce((n,b)=>n+(b[id]||0),0));
+  if(!names.length)throw Error('Нет животных в '+(fields.name||'уровне'));
+  const initialBanks=banksByPier.map(b=>names.map(id=>b[id]||0));
+  const boats=(fields.boats||'').split('|').map(x=>{
+   const ss=x.match(/seats\s*=\s*(\d+)/),ww=x.match(/weight\s*=\s*(\d+)/);
+   if(!ss&&!ww)throw Error('Лодке нужны seats или weight');
+   return {seats:ss?Number(ss[1]):null,weight:ww?Number(ww[1]):null};
+  });
+  if(boats.length!==piers-1)throw Error('Для '+piers+' причалов требуется '+(piers-1)+' лодок');
+  // The global rulebook is authoritative. Legacy per-level `rules:`
+  // lists are intentionally ignored: they could silently omit valid hazards.
+  // A rule is included only when there are enough animals for its
+  // antecedent to be satisfied on some shore.
+  const totalsByName=Object.fromEntries(names.map((id,i)=>[id,totals[i]]));
+  const possible=(r)=>{
+   if(!names.includes(r.a)||!names.includes(r.b))return false;
+   if(!r.condition)return true;
+   const [left,op,right]=r.condition;
+   const cmp=(x,y)=>({'>':x>y,'>=':x>=y,'<':x<y,'<=':x<=y,'==':x===y}[op]);
+   const lo=(id)=>id===r.a||id===r.b?1:0;
+   const maxL=totalsByName[left]||0,maxR=totalsByName[right]||0;
+   for(let a=lo(left);a<=maxL;a++)for(let b=lo(right);b<=maxR;b++)
+    if(cmp(a,b))return true;
+   return false;
+  };
+  const applicable=rules.filter(possible);
+  levels.push({name:fields.name||'Без названия',piers,names,totals,boats,rules:applicable,initialBanks});
+ }
+ if(!levels.length)throw Error('Нет уровней FERRYMAN');return {levels,rules};
 }
-function initial(l){return {f:0,banks:Array.from({length:l.piers},(_,p)=>l.totals.map(n=>p===0?n:0)),boatPos:Array(l.piers-1).fill(0)};}
+function initial(l){return {f:0,banks:l.initialBanks.map(b=>b.slice()),boatPos:Array(l.piers-1).fill(0)};}
 function evalRule(r,counts){const get=id=>counts[level.names.indexOf(id)]||0;if(!(get(r.a)>0&&get(r.b)>0))return false;if(!r.condition)return true;let [x,op,y]=r.condition,a=get(x),b=get(y);return {'>':()=>a>b,'>=':()=>a>=b,'<':()=>a<b,'<=':()=>a<=b,'==':()=>a===b}[op]();}
 function danger(l,s){for(let p=0;p<l.piers;p++){if(p===s.f)continue;for(const rule of l.rules){const get=id=>s.banks[p][l.names.indexOf(id)]||0;let condition=true;if(rule.condition){const [a,op,b]=rule.condition,x=get(a),y=get(b);condition={'>' :x>y,'>=':x>=y,'<':x<y,'<=':x<=y,'==':x===y}[op];}if(get(rule.a)>0&&get(rule.b)>0&&condition)return {pier:p,rule};}}return null;}
 function canCarry(l,water,arr){const boat=l.boats[water],count=arr.reduce((a,b)=>a+b,0),weight=arr.reduce((sum,n,i)=>sum+n*INFO[l.names[i]].weight,0);return (boat.seats===null||count+1<=boat.seats)&&(boat.weight===null||weight<=boat.weight);}
@@ -160,26 +225,34 @@ function showVictory(){
  $('winNext').disabled=levelIndex>=catalog.length-1;
  $('winOverlay').classList.remove('hidden');
 }
-function loadLevel(i){pierFacing={};hideVictory();levelStartedAt=Date.now();solverToken++;pausePlay();levelIndex=i;level=catalog[i];game=initial(level);history=[];cargo={};selectedWater=0;solution=null;preview=false;previewState=null;previewCargo={};previewWater=0;playerAnimating=false;pendingLanding=null;pendingBoarding=null;pendingSeat=null;boatSlots=[];previewSlots=[];busy=false;$('viewer').classList.add('hidden');$('levelTitle').textContent=level.name;$('solveStatus').textContent='';flash('Нажми на животное, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.');render();}
+function loadLevel(i){pierFacing={};hideVictory();levelStartedAt=Date.now();solverToken++;pausePlay();levelIndex=i;level=catalog[i];game=initial(level);history=[];cargo={};selectedWater=0;solution=null;preview=false;previewState=null;previewCargo={};previewWater=0;playerAnimating=false;pendingLanding=null;pendingBoarding=null;pendingSeat=null;boatSlots=[];previewSlots=[];busy=false;$('viewer').classList.add('hidden');$('levelTitle').textContent=level.name;$('solveStatus').textContent='';$('prevLevel').disabled=i===0;$('nextLevel').disabled=i===catalog.length-1;flash('Нажми на животное, чтобы посадить его в лодку. Затем нажми на лодку или стрелку.');render();}
 function current(){return preview?(previewState||(solution?solution.states[viewStep]:game)):game;}
 function chooseWater(){const s=current(),opts=[s.f-1,s.f].filter(w=>w>=0&&w<level.piers-1&&s.boatPos[w]===s.f-w);if(!opts.length)return null;if(preview){return opts.includes(previewWater)?previewWater:opts[0];}return opts.includes(selectedWater)?selectedWater:opts[0];}
 function pierPositions(){
  const result=[];
  document.querySelectorAll('.land.here .pierAnimals .unit:not(.landingSlot)').forEach(el=>{
-  const r=el.getBoundingClientRect();result.push({spec:el.dataset.spec,x:r.left,y:r.top});
+  const r=el.getBoundingClientRect();
+  result.push({node:el,x:r.left,y:r.top});
  });
  return result;
 }
 function animatePierShuffle(before){
- const unused=before.slice();
- document.querySelectorAll('.land.here .pierAnimals .unit:not(.landingSlot)').forEach(el=>{
-  const rect=el.getBoundingClientRect();let best=-1,score=Infinity;
-  unused.forEach((item,i)=>{if(item.spec!==el.dataset.spec)return;const d=Math.abs(item.x-rect.left)+Math.abs(item.y-rect.top);if(d<score){score=d;best=i;}});
-  if(best<0)return;const old=unused.splice(best,1)[0];const dx=old.x-rect.left,dy=old.y-rect.top;
-  if(Math.abs(dx)<1&&Math.abs(dy)<1)return;
-  el.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:500,easing:'ease-in-out'});
- });
+ // Always animate ORIGINAL existing animals; never hide or replace their sprites.
+ // Their DOM identity survives render() even for multiple animals of one type.
+ const previous=new Map(before.map(item=>[item.node,item]));
+ for(const el of document.querySelectorAll('.land.here .pierAnimals .unit:not(.landingSlot)')){
+  const from=previous.get(el);
+  if(!from)continue;
+  const to=el.getBoundingClientRect();
+  const dx=from.x-to.left,dy=from.y-to.top;
+  if(Math.abs(dx)<0.5&&Math.abs(dy)<0.5)continue;
+  el.animate([
+   {transform:`translate(${dx}px, ${dy}px)`},
+   {transform:'translate(0px, 0px)'}
+  ],{duration:475,easing:'ease-in-out'});
+ }
 }
+
 function flySprite(source,target,done,options={}){
  if(!source||!target){done();return;}
  // When unloading the original button has already been redrawn to make room.
@@ -208,6 +281,11 @@ function flySprite(source,target,done,options={}){
  }));
  setTimeout(()=>{if(seating)ghost.src=img(spec,true);ghost.remove();busy=false;done();},510);
 }
+// Keep existing shore animals in the live DOM while another animal lands.
+// The first goat must not be destroyed/recreated during the second goat's landing.
+// Keep a completely independent visual layer of the existing shore animals
+// while a passenger lands. This avoids any accidental disappearance of the
+// first identical goat/tiger/bull during DOM re-layout.
 function toggleSpecies(spec,fromBoat,sourceEl){
  if(preview||busy)return;
  const s=game,water=chooseWater();if(water===null){flash('На этом причале нет лодки.','bad');return;}
@@ -223,9 +301,11 @@ function toggleSpecies(spec,fromBoat,sourceEl){
    if(slot<0||slots[slot]!==spec)return;
    const origin=sourceEl.querySelector('img')||sourceEl;
    source={rect:origin.getBoundingClientRect(),src:origin.src};
-   const oldPositions=pierPositions();
-   pendingSeat=slot;pendingLanding={pier:game.f,spec};
-   render();animatePierShuffle(oldPositions);
+   pendingSeat=slot;
+   const before=pierPositions();
+   pendingLanding={pier:game.f,spec};
+   render();
+   animatePierShuffle(before);
    target=document.querySelector('.land.here .pierAnimals .landingSlot');
  }else{
    slot=slots.indexOf(null);
@@ -304,27 +384,76 @@ function prepareFollowers(newWater,ferryFromX,ferryToX,travelMs){
 function rememberFacing(pier,water){
  if(pier>0&&pier<level.piers-1) pierFacing[pier]=(water===pier?'right':'left');
 }
+// A transfer uses ONE visible ferryman. The active boat artwork already
+// contains his seated silhouette, so replace it with the empty version
+// before the standing walking sprite appears (including in solution replay).
+function hideSeatedFerrymanForTransfer(oldBoat, water){
+ if(!oldBoat)return;
+ const seatedArtwork=oldBoat.querySelector('.boatPic');
+ if(seatedArtwork)seatedArtwork.src=emptyBoatImg(level.boats[water]);
+ const extra=oldBoat.querySelector('.farmerPic');
+ if(extra)extra.style.visibility='hidden';
+}
+
+// Walk only on the pier. Boarding and leaving a boat use short angled ramps;
+// the main crossing happens along the landing, below the waiting animals.
+async function walkBetweenBoats(oldWater,newWater){
+ const old=$('boat'+oldWater),next=$('boat'+newWater);
+ const land=document.querySelector('.land.here');
+ if(!old||!next||!land)return false;
+ const from=old.querySelector('.farmerPic').getBoundingClientRect();
+ const dest=next.getBoundingClientRect();
+ const pier=land.getBoundingClientRect();
+ const goingRight=newWater>oldWater;
+ // Coordinates are the center of the farmer's feet in screen space.
+ const width=54,height=79;
+ const start={x:from.left+from.width*.5,y:from.bottom};
+ const finish={x:dest.left+dest.width*.2+width*.5,y:dest.bottom-24};
+ const safeInset=20;
+ const shoreY=pier.bottom-57; // walking on the stone/grass, below the animals
+ const fromDock={x:goingRight?pier.left+safeInset:pier.right-safeInset,y:shoreY};
+ const toDock={x:goingRight?pier.right-safeInset:pier.left+safeInset,y:shoreY};
+ const points=[start,fromDock,toDock,finish];
+ const lengths=points.slice(1).map((p,i)=>Math.hypot(p.x-points[i].x,p.y-points[i].y));
+ const speed=ferrySpeed(newWater);
+ const durations=lengths.map(d=>Math.max(80,Math.round(d/speed)));
+ const elapsed=[0];
+ durations.forEach(d=>elapsed.push(elapsed[elapsed.length-1]+d));
+ const total=elapsed[3];
+ const ghost=document.createElement('img');
+ ghost.src=farmerImg(false);ghost.className='walkingFarmer';
+ Object.assign(ghost.style,{
+   position:'fixed',left:(start.x-width/2)+'px',top:(start.y-height)+'px',
+   width:width+'px',height:height+'px',transform:'none',transition:'none',
+   objectPosition:'center bottom',pointerEvents:'none'
+ });
+ hideSeatedFerrymanForTransfer(old,oldWater);
+ document.body.append(ghost);
+ busy=true;
+ const keyframes=points.map((p,i)=>({
+   offset:elapsed[i]/total,left:(p.x-width/2)+'px',top:(p.y-height)+'px'
+ }));
+ const anim=ghost.animate(keyframes,{duration:total,easing:'linear',fill:'forwards'});
+ // Animals follow only when the ferryman has entered the island.
+ await sleep(durations[0]);
+ const followers=prepareFollowers(newWater,fromDock.x,toDock.x,durations[1]);
+ followers.start();
+ await Promise.all([anim.finished.catch(()=>{}),sleep(followers.totalMs)]);
+ followers.finish();
+ ghost.remove();
+ busy=false;
+ return true;
+}
+
 function setWater(w,after){
  if(preview||busy)return;
  if(Object.values(cargo).some(Boolean)){flash('Сначала высади пассажиров, прежде чем менять лодку.','bad');return;}
  if(selectedWater===w){if(after)after();return;}
- const old=$('boat'+selectedWater),next=$('boat'+w),start=old?.querySelector('.farmerPic');
- if(!start||!next){selectedWater=w;render();if(after)after();return;}
- const startRect=start.getBoundingClientRect(),endRect=next.getBoundingClientRect();
- const ghost=document.createElement('img');ghost.src=farmerImg(false);ghost.className='walkingFarmer';
- const footY=startRect.bottom, endFeet=endRect.bottom-24;
- Object.assign(ghost.style,{left:startRect.left+'px',top:(footY-startRect.height)+'px',width:startRect.width+'px',height:startRect.height+'px',transform:'none',transition:'none',objectPosition:'center bottom'});
- document.body.append(ghost);start.style.opacity='0';if(old)old.querySelector('.boatPic').src=emptyBoatImg(level.boats[selectedWater]);busy=true;
- // The standing farmer travels directly between the two boats.
- const targetX=endRect.left+endRect.width*0.2;
- const walkingMs=Math.max(350,Math.round(Math.abs(targetX-startRect.left)/ferrySpeed(w)));
- const followers=prepareFollowers(w,startRect.left+startRect.width/2,targetX+startRect.width/2,walkingMs);
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-   ghost.style.transition=`left ${walkingMs}ms linear, top ${walkingMs}ms linear`;
-   ghost.style.left=targetX+'px';ghost.style.top=(endFeet-startRect.height)+'px';
-   followers.start();
- }));
- setTimeout(()=>{followers.finish();ghost.remove();busy=false;selectedWater=w;rememberFacing(game.f,w);render();if(after)after();},followers.totalMs+80);
+ const oldWater=selectedWater;
+ walkBetweenBoats(oldWater,w).then(ok=>{
+   selectedWater=w;rememberFacing(game.f,w);render();
+   if(after)after();
+ });
 }
 function move(dir){
  if(busy||preview)return;
@@ -350,11 +479,11 @@ function undo(){
 }
 const NEW_EMPTY_BOATS={"2":"image/empty_boat_new_2.png","3":"image/empty_boat_new_3.png","4":"image/empty_boat_new_4.png"};
 const EXTRA_SPRITES={};
-const SPRITE_KEYS={wolf:'wolf',goat:'goat',tiger:'tiger',bull:'bull',cabbage:'cabbage',ferryman:'farmer',farmer:'farmer',wolf_sit:'wolf_sit',goat_sit:'goat_sit',tiger_sit:'tiger_sit',bull_sit:'bull_sit',cabbage_sit:'cabbage_sit',ferryman_sit:'farmer_sit',farmer_sit:'farmer_sit',boat_2_seats:'boat2',boat_3_seats:'boat3',boat_4_seats:'boat4'};
+const SPRITE_KEYS={wolf:'wolf',goat:'goat',tiger:'tiger',bull:'bull',cabbage:'cabbage',snake:'snake',mongoose:'mongoose',snake_sit:'snake_sit',mongoose_sit:'mongoose_sit',ferryman:'farmer',farmer:'farmer',wolf_sit:'wolf_sit',goat_sit:'goat_sit',tiger_sit:'tiger_sit',bull_sit:'bull_sit',cabbage_sit:'cabbage_sit',boat_2_seats:'boat2',boat_3_seats:'boat3',boat_4_seats:'boat4'};
 function img(spec,inBoat=false){return EXTRA_SPRITES[inBoat?spec+'_sit':spec]||ASSETS[inBoat?spec+'_sit':spec]||EXTRA_SPRITES[spec]||ASSETS[spec]||'';}
 function boatImg(cap){const seats=Math.max(2,Math.min(4,cap.seats||3));return NEW_EMPTY_BOATS[seats];}
 function emptyBoatImg(cap){return boatImg(cap);}
-function farmerImg(seated=true){return (seated?(EXTRA_SPRITES.farmer_sit||ASSETS.farmer_sit):(EXTRA_SPRITES.farmer||ASSETS.farmer));}
+function farmerImg(){return EXTRA_SPRITES.farmer||ASSETS.farmer;}
 
 function importSprites(files){let loaded=0,unknown=[];const jobs=Array.from(files).map(file=>new Promise(resolve=>{const key=SPRITE_KEYS[file.name.replace(/\.(png|webp)$/i,'').toLowerCase()];if(!key){unknown.push(file.name);return resolve();}const reader=new FileReader();reader.onload=()=>{EXTRA_SPRITES[key]=reader.result;loaded++;resolve();};reader.onerror=()=>resolve();reader.readAsDataURL(file);}));Promise.all(jobs).then(()=>{render();gallery();$('spriteStatus').textContent='Загружено: '+loaded+'. '+(unknown.length?'Не распознаны: '+unknown.join(', '):'');});}
 
@@ -385,11 +514,27 @@ function clickFerryman(){
  else flash('На этом причале нет другой доступной лодки.');
 }
 function render(){
- const s=current(),scene=$('scene');scene.replaceChildren();const sun=document.createElement('div');sun.className='sun';scene.append(sun);['c1','c2','c3','c4','c5','c6','c7','c8'].forEach(c=>{const el=document.createElement('div');el.className='cloud '+c;scene.append(el);});[['g1',2],['g2',3],['g3',3],['g4',2],['g5',2],['g6',2]].forEach(([cls,n])=>{const g=document.createElement('div');g.className='gulls '+cls;for(let i=0;i<n;i++){const b=document.createElement('div');b.className='gull';g.append(b);}scene.append(g);});
+ const s=current(),scene=$('scene');
+ // Preserve each real shore animal DOM node across shore re-layouts.
+ // This is important when two identical goats are unloaded in Classic 3:
+ // replacing the first goat with a brand new image briefly blanks it.
+ const shoreNodes=new Map();
+ for(const existingLand of scene.querySelectorAll('.land[data-pier]')){
+   const pier=existingLand.dataset.pier;
+   for(const el of existingLand.querySelectorAll('.pierAnimals .unit:not(.landingSlot)')){
+     const key=pier+'|'+el.dataset.spec;
+     if(!shoreNodes.has(key))shoreNodes.set(key,[]);
+     shoreNodes.get(key).push(el);
+   }
+ }
+ // Detach reusable animal elements before rebuilding the land containers.
+ // Their decoded images and existing identity are retained.
+ for(const group of shoreNodes.values())for(const el of group)el.remove();
+ scene.replaceChildren();const sun=document.createElement('div');sun.className='sun';scene.append(sun);['c1','c2','c3','c4','c5','c6','c7','c8'].forEach(c=>{const el=document.createElement('div');el.className='cloud '+c;scene.append(el);});[['g1',2],['g2',3],['g3',3],['g4',2],['g5',2],['g6',2]].forEach(([cls,n])=>{const g=document.createElement('div');g.className='gulls '+cls;for(let i=0;i<n;i++){const b=document.createElement('div');b.className='gull';g.append(b);}scene.append(g);});
  const needed=level.piers*LAND_W+(level.piers-1)*WATER_W+40;scene.style.width=Math.max(needed,$('scroll').clientWidth)+'px';
  const activeWater=chooseWater();
  for(let p=0;p<level.piers;p++){
-  const land=document.createElement('div');land.className='land'+(p===s.f?' here':'')+(p===0?' edgeLeft':p===level.piers-1?' edgeRight':'');
+  const land=document.createElement('div');land.dataset.pier=String(p);land.className='land'+(p===s.f?' here':'')+(p===0?' edgeLeft':p===level.piers-1?' edgeRight':'');
   if(p===0){land.style.left='0px';land.style.width=(bankLeft(0)+LAND_W)+'px';}
   else if(p===level.piers-1){land.style.left=bankLeft(p)+'px';land.style.width=(parseFloat(scene.style.width)-bankLeft(p))+'px';}
   else{land.style.left=bankLeft(p)+'px';}
@@ -414,7 +559,21 @@ function render(){
      p===s.f&&activeWater!==null?(activeWater===p?'right':'left'):(pierFacing[p]||'left');
    if(side==='right'){row.style.left='auto';row.style.right='0px';row.style.transform='none';}
    else {row.style.left='0px';row.style.right='auto';row.style.transform='none';}
-   for(const item of items){const el=unit(item.spec,false,p===s.f&&activeWater!==null);if(item.placeholder){el.classList.add('landingSlot');el.style.visibility='hidden';el.style.pointerEvents='none';}row.append(el);}
+   for(const item of items){
+     let el;
+     if(item.placeholder){
+       el=unit(item.spec,false,false);
+       el.classList.add('landingSlot');
+       el.style.visibility='hidden';el.style.pointerEvents='none';
+     }else{
+       const pool=shoreNodes.get(p+'|'+item.spec);
+       el=pool?.length?pool.shift():unit(item.spec,false,false);
+       el.disabled=!(p===s.f&&activeWater!==null)||busy||preview;
+       el.classList.toggle('active',p===s.f&&activeWater!==null);
+       el.style.visibility='visible';el.style.opacity='1';
+     }
+     row.append(el);
+   }
    return row;
   };
   if(backCount)animals.append(makeRow('rearRow',animalsOnPier.slice(0,backCount)));
@@ -431,7 +590,7 @@ function render(){
   b.src=(stationed&&w===activeWater)?(EXTRA_SPRITES['boat'+Math.max(2,Math.min(4,cap.seats||3))]||ASSETS['boat'+Math.max(2,Math.min(4,cap.seats||3))]):emptyBoatImg(cap);
   boat.append(b);
   if(stationed){
-   if(w===activeWater){const ferr=document.createElement('img');ferr.className='farmerPic';ferr.src=farmerImg(true);boat.append(ferr);const hit=document.createElement('button');hit.className='farmerHit';hit.title='Перейти в лодку соседнего водоёма';hit.setAttribute('aria-label','Пересесть в соседнюю лодку');hit.onclick=e=>{e.stopPropagation();clickFerryman();};boat.append(hit);}
+   if(w===activeWater){const ferr=document.createElement('span');ferr.className='farmerPic';boat.append(ferr);const hit=document.createElement('button');hit.className='farmerHit';hit.title='Перейти в лодку соседнего водоёма';hit.setAttribute('aria-label','Пересесть в соседнюю лодку');hit.onclick=e=>{e.stopPropagation();clickFerryman();};boat.append(hit);}
    const occupants=document.createElement('div');occupants.className='boatCargo';
    if(w===activeWater){
     const slots=preview?previewSlots:boatSlots;
@@ -463,9 +622,9 @@ function render(){
 function renderRules(){
  const el=$('rules');el.replaceChildren();
  if(!level.rules.length){el.textContent='Нет опасных сочетаний';return;}
- const pluralGen={wolf:'Волков',goat:'Коз',tiger:'Тигров',bull:'Быков',cabbage:'Капусты'};
- const pluralNom={wolf:'Волки',goat:'Козы',tiger:'Тигры',bull:'Быки',cabbage:'Капуста'};
- const accusative={wolf:'Волка',goat:'Козу',tiger:'Тигра',bull:'Быка',cabbage:'Капусту'};
+ const pluralGen={wolf:'Волков',goat:'Коз',tiger:'Тигров',bull:'Быков',cabbage:'Капусты',snake:'Змей',mongoose:'Мангустов'};
+ const pluralNom={wolf:'Волки',goat:'Козы',tiger:'Тигры',bull:'Быки',cabbage:'Капуста',snake:'Змеи',mongoose:'Мангусты'};
+ const accusative={wolf:'Волка',goat:'Козу',tiger:'Тигра',bull:'Быка',cabbage:'Капусту',snake:'Змею',mongoose:'Мангуста'};
  for(const r of level.rules){
   let words;
   if(r.a==='tiger'&&r.b==='bull'&&r.condition&&r.condition[0]==='tiger'&&r.condition[1]==='>'&&r.condition[2]==='bull'){
@@ -473,7 +632,9 @@ function renderRules(){
   }else{
     words=INFO[r.a].name+' ест '+(accusative[r.b]||INFO[r.b].name);
     if(r.condition){const [left,op,right]=r.condition;
-      words+=' при условии '+(pluralNom[left]||INFO[left].name)+' '+op+' '+(pluralGen[right]||INFO[right].name);
+      if(!(r.a==='wolf'&&r.b==='goat'&&level.totals[level.names.indexOf('goat')]===1)) {
+        words+=' при условии '+(pluralNom[left]||INFO[left].name)+' '+op+' '+(pluralGen[right]||INFO[right].name);
+      }
     }
   }
   const d=document.createElement('div');d.className='rule';d.textContent=words;el.append(d);
@@ -504,7 +665,13 @@ function gallery(){
   bt.append(meta);bt.onclick=()=>{$('galleryOverlay').classList.add('hidden');loadLevel(i);};el.append(bt);
  });
 }
-function pausePlay(){if(playTimer){clearInterval(playTimer);playTimer=null;}$('vplay').textContent='▶ Play';}
+function pausePlay(){
+ playbackRunning=false;
+ playbackEpoch++;
+ if(playTimer!==null){clearTimeout(playTimer);playTimer=null;}
+ $('vplay').textContent='▶ Play';
+}
+
 function updateViewerInfo(){if(!solution)return;$('vslider').max=solution.states.length-1;$('vslider').value=viewStep;$('viewCount').textContent=viewStep+' / '+(solution.states.length-1);const step=solution.steps[viewStep-1];$('vinfo').textContent=step?'Переправа: причал '+(step.from+1)+' → '+(step.to+1)+'; '+(step.cargo.map((v,i)=>v?INFO[level.names[i]].name+' ×'+v:'').filter(Boolean).join(', ')||'паромщик один'):'Начальная позиция';}
 function stepWater(step){return step.to>step.from?step.from:step.to;}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
@@ -512,37 +679,177 @@ function flySpriteAsync(source,target,options){return new Promise(resolve=>flySp
 function animateBoatPreview(w,pos){return new Promise(resolve=>{busy=true;rememberFacing(previewState.f,w);const el=$('boat'+w);if(el){el.style.left=boatLeft(w,pos)+'px';el.style.zIndex=20;const center=boatLeft(w,pos)+74,sc=$('scroll');const toScroll=Math.max(0,center-sc.clientWidth/2);sc.scrollTo({left:toScroll,behavior:'smooth'});}setTimeout(()=>{busy=false;resolve();},1190);});}
 async function animateWaterChangePreview(newW){
  if(previewWater===newW)return;
- const old=$('boat'+previewWater),next=$('boat'+newW);
- if(!old||!next){previewWater=newW;render();return;}
- const startRect=old.getBoundingClientRect(),endRect=next.getBoundingClientRect();
- const ghost=document.createElement('img');
- ghost.src=farmerImg(false);ghost.className='walkingFarmer';
- const fromX=startRect.left+startRect.width*0.18;
- const targetX=endRect.left+endRect.width*0.18;
- Object.assign(ghost.style,{left:fromX+'px',top:(startRect.bottom-67)+'px',width:'54px',height:'79px',transform:'none',transition:'none',objectPosition:'center bottom'});
- document.body.append(ghost);busy=true;
- const walkingMs=Math.max(350,Math.round(Math.abs(targetX-fromX)/ferrySpeed(newW)));
- const followers=prepareFollowers(newW,fromX+27,targetX+27,walkingMs);
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-   ghost.style.transition=`left ${walkingMs}ms linear, top ${walkingMs}ms linear`;
-   ghost.style.left=targetX+'px';
-   ghost.style.top=(endRect.bottom-67)+'px';
-   followers.start();
- }));
- await sleep(followers.totalMs+80);
- followers.finish();ghost.remove();busy=false;previewWater=newW;rememberFacing(previewState.f,newW);render();
+ await walkBetweenBoats(previewWater,newW);
+ previewWater=newW;rememberFacing(previewState.f,newW);render();
 }
-async function animateNextSolutionStep(){if(!solution||playerAnimating||busy||viewStep>=solution.steps.length)return false;playerAnimating=true;preview=true;const step=solution.steps[viewStep];const fromState=clone(solution.states[viewStep]);const toState=clone(solution.states[viewStep+1]);const w=stepWater(step);if(!previewState)previewState=clone(fromState);await animateWaterChangePreview(w);previewState=clone(fromState);previewCargo={};previewSlots=Array(seatCount(w)).fill(null);previewWater=w;render();await sleep(80);for(let i=0;i<step.cargo.length;i++){for(let k=0;k<step.cargo[i];k++){const spec=level.names[i];const source=document.querySelector('.land.here .pierAnimals .unit[data-spec="'+spec+'"]');const slot=previewSlots.indexOf(null);const target=document.querySelector('#boat'+w+' .boatCargo .seatSlot[data-seat="'+slot+'"]');if(source&&target){const origin=source.querySelector('img')||source;const src={rect:origin.getBoundingClientRect(),src:origin.src};const before=pierPositions();pendingBoarding={pier:previewState.f,spec};render();animatePierShuffle(before);const dest=document.querySelector('#boat'+w+' .boatCargo .seatSlot[data-seat="'+slot+'"]');await flySpriteAsync(src,dest,{spec,boarding:true});pendingBoarding=null;previewCargo[spec]=(previewCargo[spec]||0)+1;previewSlots[slot]=spec;render();await sleep(35);}}}await sleep(80);await animateBoatPreview(w,toState.boatPos[w]);const mid=clone(toState);for(let i=0;i<step.cargo.length;i++)mid.banks[toState.f][i]-=step.cargo[i];previewState=mid;previewWater=w;render();await sleep(60);for(let i=0;i<step.cargo.length;i++){for(let k=0;k<step.cargo[i];k++){const spec=level.names[i];const source=document.querySelector('#boat'+w+' .boatCargo .unit[data-spec="'+spec+'"]');if(source){const seatEl=source.closest('.seatSlot');const slot=seatEl?Number(seatEl.dataset.seat):previewSlots.indexOf(spec);pendingSeat=slot;const origin=source.querySelector('img')||source;const src={rect:origin.getBoundingClientRect(),src:origin.src};const before=pierPositions();pendingLanding={pier:previewState.f,spec};render();animatePierShuffle(before);const target=document.querySelector('.land.here .pierAnimals .landingSlot')||document.querySelector('.land.here .pierAnimals');if(target)await flySpriteAsync(src,target,{spec,boarding:false});pendingLanding=null;pendingSeat=null;previewSlots[slot]=null;previewCargo[spec]=(previewCargo[spec]||1)-1;if(previewCargo[spec]<=0)delete previewCargo[spec];const idx=level.names.indexOf(spec);previewState.banks[previewState.f][idx]++;render();await sleep(35);}}}viewStep++;previewState=clone(solution.states[viewStep]);previewCargo={};previewSlots=[];previewWater=w;render();updateViewerInfo();playerAnimating=false;return true;}
-function seek(i){pausePlay();if(!solution)return;viewStep=Math.max(0,Math.min(solution.states.length-1,Number(i)));preview=true;previewState=clone(solution.states[viewStep]);previewCargo={};previewSlots=[];previewWater=viewStep>0?stepWater(solution.steps[viewStep-1]):chooseWater()??0;render();updateViewerInfo();}
+// The BFS stores a shore-based snapshot after each crossing, but on screen
+// passengers may still be physically in the boat. Never subtract passengers
+// from those BFS snapshots: render() already subtracts previewCargo once.
+// If the next crossing uses the SAME boat and needs the SAME passenger, keep
+// that passenger aboard instead of unloading and immediately reboarding it.
+function retainedCargoAt(stepIndex){
+ const kept=level.names.map(()=>0);
+ if(!solution||stepIndex<=0||stepIndex>=solution.steps.length)return kept;
+ const before=solution.steps[stepIndex-1];
+ const after=solution.steps[stepIndex];
+ if(before.to!==after.from||stepWater(before)!==stepWater(after))return kept;
+ for(let i=0;i<kept.length;i++)kept[i]=Math.min(before.cargo[i]||0,after.cargo[i]||0);
+ return kept;
+}
+function putPreviewCargoIntoSeats(w,counts){
+ previewSlots=Array(seatCount(w)).fill(null);
+ previewCargo={};
+ for(let i=0;i<level.names.length;i++){
+   for(let k=0;k<(counts[i]||0);k++){
+     const seat=previewSlots.indexOf(null);
+     if(seat<0)throw Error('Недостаточно мест при воспроизведении решения');
+     previewSlots[seat]=level.names[i];
+     previewCargo[level.names[i]]=(previewCargo[level.names[i]]||0)+1;
+   }
+ }
+}
+// Reconstruct seat assignments for timeline seeking without compacting the boat.
+// A passenger keeps the same seat across consecutive crossings on one boat.
+function previewSeatLayoutAt(index){
+ const water=index>0?stepWater(solution.steps[index-1]):(chooseWater()??0);
+ let slots=Array(seatCount(water)).fill(null),lastWater=null;
+ for(let n=0;n<index;n++){
+   const w=stepWater(solution.steps[n]);
+   if(w!==lastWater)slots=Array(seatCount(w)).fill(null);
+   const load=solution.steps[n].cargo;
+   for(let i=0;i<load.length;i++){
+     const species=level.names[i];
+     let present=slots.filter(x=>x===species).length;
+     while(present<(load[i]||0)){
+       const free=slots.indexOf(null);
+       if(free<0)throw Error('Недостаточно мест для восстановления решения');
+       slots[free]=species;present++;
+     }
+   }
+   const keep=retainedCargoAt(n+1);
+   for(let i=0;i<load.length;i++){
+     const species=level.names[i];
+     let excess=slots.filter(x=>x===species).length-(keep[i]||0);
+     for(let k=slots.length-1;k>=0&&excess>0;k--){
+       if(slots[k]===species){slots[k]=null;excess--;}
+     }
+   }
+   lastWater=w;
+ }
+ previewSlots=slots;
+ previewCargo={};
+ for(const species of slots)if(species)previewCargo[species]=(previewCargo[species]||0)+1;
+}
+async function animateNextSolutionStep(){
+ if(!solution||playerAnimating||busy||viewStep>=solution.steps.length)return false;
+ playerAnimating=true;preview=true;
+ try{
+   const step=solution.steps[viewStep];
+   const fromState=clone(solution.states[viewStep]);
+   const toState=clone(solution.states[viewStep+1]);
+   const w=stepWater(step);
+   const sameBoat=previewWater===w;
+   await animateWaterChangePreview(w);
+   previewState=fromState;
+   const alreadyAboard=retainedCargoAt(viewStep);
+   // Do not reshuffle existing passengers when the ferry returns.
+   // The empty seat stays empty until a new passenger actually boards.
+   if(!sameBoat)putPreviewCargoIntoSeats(w,alreadyAboard);
+   previewWater=w;render();await sleep(80);
+   // Board only passengers that were not already on this boat.
+   for(let i=0;i<step.cargo.length;i++){
+     for(let k=alreadyAboard[i];k<step.cargo[i];k++){
+       const spec=level.names[i];
+       const source=document.querySelector('.land.here .pierAnimals .unit[data-spec="'+spec+'"]');
+       const slot=previewSlots.indexOf(null);
+       if(!source||slot<0)throw Error('Не найден пассажир для посадки: '+spec);
+       const origin=source.querySelector('img')||source;
+       const src={rect:origin.getBoundingClientRect(),src:origin.src};
+       const before=pierPositions();
+       pendingBoarding={pier:previewState.f,spec};pendingSeat=slot;
+       render();animatePierShuffle(before);
+       const dest=document.querySelector('#boat'+w+' .boatCargo .seatSlot[data-seat="'+slot+'"]');
+       await flySpriteAsync(src,dest,{spec,boarding:true});
+       pendingBoarding=null;pendingSeat=null;
+       previewCargo[spec]=(previewCargo[spec]||0)+1;
+       previewSlots[slot]=spec;
+       render();await sleep(35);
+     }
+   }
+   await sleep(80);
+   await animateBoatPreview(w,toState.boatPos[w]);
+   // FIX: toState already includes ALL passengers on the destination bank.
+   // render() removes the ones still aboard, so do NOT subtract them here.
+   previewState=toState;previewWater=w;render();await sleep(60);
+   const toKeep=retainedCargoAt(viewStep+1);
+   for(let i=0;i<step.cargo.length;i++){
+     for(let k=toKeep[i];k<step.cargo[i];k++){
+       const spec=level.names[i];
+       const source=document.querySelector('#boat'+w+' .boatCargo .unit[data-spec="'+spec+'"]');
+       if(!source)throw Error('Не найден пассажир для высадки: '+spec);
+       const seatEl=source.closest('.seatSlot');
+       const slot=seatEl?Number(seatEl.dataset.seat):previewSlots.indexOf(spec);
+       pendingSeat=slot;
+       const origin=source.querySelector('img')||source;
+       const src={rect:origin.getBoundingClientRect(),src:origin.src};
+       const before=pierPositions();
+       pendingLanding={pier:previewState.f,spec};
+       render();animatePierShuffle(before);
+       const target=document.querySelector('.land.here .pierAnimals .landingSlot');
+       await flySpriteAsync(src,target,{spec,boarding:false});
+       pendingLanding=null;pendingSeat=null;
+       previewSlots[slot]=null;
+       previewCargo[spec]--;
+       if(previewCargo[spec]<=0)delete previewCargo[spec];
+       // No increment to previewState.banks: the BFS snapshot already contains
+       // this landed passenger, and render() will now display it automatically.
+       render();await sleep(35);
+     }
+   }
+   viewStep++;
+   previewState=clone(solution.states[viewStep]);
+   // Keep previewSlots exactly as left by the boarding/landing animations.
+   // In particular a cabbage sitting in seat 2 must not jump into seat 1.
+   previewWater=w;render();updateViewerInfo();
+   return true;
+ }finally{
+   pendingLanding=null;pendingBoarding=null;pendingSeat=null;
+   playerAnimating=false;
+ }
+}
+function seek(i){
+ if(playerAnimating)return;
+ pausePlay();if(!solution)return;
+ viewStep=Math.max(0,Math.min(solution.states.length-1,Number(i)));
+ preview=true;previewState=clone(solution.states[viewStep]);
+ previewWater=viewStep>0?stepWater(solution.steps[viewStep-1]):chooseWater()??0;
+ previewSeatLayoutAt(viewStep);
+ render();updateViewerInfo();
+}
 function showSolution(states,steps){solution={states,steps};$('viewer').classList.remove('hidden');viewStep=0;preview=true;previewState=clone(states[0]);previewCargo={};previewSlots=[];previewWater=0;seek(0);}
 function solve(){pausePlay();solverToken++;const token=solverToken;preview=false;solution=null;render();$('solve').disabled=true;$('stop').classList.remove('hidden');$('solveStatus').textContent='Поиск BFS...';const start=clone(game),nodes=[{s:start,prev:-1,step:null}],seen=new Set([hash(start)]);let head=0,found=-1;const started=performance.now(),maxStates=600000;
  function chunk(){if(token!==solverToken)return;const t=performance.now();while(head<nodes.length&&performance.now()-t<28){const idx=head++,s=nodes[idx].s;if(won(level,s)){found=idx;break;}for(let w of [s.f-1,s.f]){if(w<0||w>=level.piers-1||s.boatPos[w]!==s.f-w)continue;for(const arr of listCargo(level,s,w)){const ns=crossed(level,s,w,arr);if(!ns)continue;const h=hash(ns);if(seen.has(h))continue;seen.add(h);nodes.push({s:ns,prev:idx,step:{from:s.f,to:ns.f,cargo:arr}});if(nodes.length>maxStates)break;}if(nodes.length>maxStates)break;}if(nodes.length>maxStates)break;}if(found!==-1){const states=[],steps=[];let v=found;while(v>=0){states.push(nodes[v].s);if(nodes[v].step)steps.push(nodes[v].step);v=nodes[v].prev;}states.reverse();steps.reverse();$('solveStatus').textContent='Ходов в решении: '+steps.length+' · Состояний: '+nodes.length+' · Время поиска: '+((performance.now()-started)/1000).toFixed(2)+' с';showSolution(states,steps);done();return;}if(head>=nodes.length||nodes.length>maxStates){$('solveStatus').textContent=head>=nodes.length?'Решение не найдено.':'Поиск прерван: лимит '+maxStates+' состояний.';done();return;}$('solveStatus').textContent='Поиск BFS · проверено '+head+' · найдено '+nodes.length;setTimeout(chunk,0);}
  function done(){$('solve').disabled=false;$('stop').classList.add('hidden');}chunk();}
 $('winRestart').onclick=()=>loadLevel(levelIndex);$('winNext').onclick=()=>{if(levelIndex<catalog.length-1)loadLevel(levelIndex+1);};$('winClose').onclick=hideVictory;
-$('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('undo').onclick=undo;$('reset').onclick=()=>loadLevel(levelIndex);$('galleryBtn').onclick=()=>{gallery();$('galleryOverlay').classList.remove('hidden');};$('closeGallery').onclick=()=>$('galleryOverlay').classList.add('hidden');$('editBtn').onclick=()=>{$('source').value=sourceText;$('editorOverlay').classList.remove('hidden');};$('closeEditor').onclick=()=>$('editorOverlay').classList.add('hidden');$('solve').onclick=solve;$('stop').onclick=()=>{solverToken++;$('solve').disabled=false;$('stop').classList.add('hidden');$('solveStatus').textContent='Поиск остановлен.';};$('vfirst').onclick=()=>seek(0);$('vprev').onclick=()=>seek(viewStep-1);$('vnext').onclick=()=>{if(preview&&solution&&viewStep<solution.states.length-1)animateNextSolutionStep();};$('vlast').onclick=()=>seek(solution.states.length-1);$('vslider').oninput=e=>seek(e.target.value);$('vclose').onclick=()=>{pausePlay();preview=false;previewState=null;previewCargo={};$('viewer').classList.add('hidden');render();};$('vplay').onclick=async()=>{if(playTimer){pausePlay();return;}if(viewStep===solution.states.length-1)seek(0);$('vplay').textContent='Ⅱ Pause';playTimer=setTimeout(async function loop(){if(!playTimer)return;const moved=await animateNextSolutionStep();if(!moved||viewStep>=solution.states.length-1){pausePlay();return;}playTimer=setTimeout(loop,220);},0);};
-let sourceText=DEFAULT_SOURCE;try{sourceText=localStorage.getItem('ferryman_catalog_v110')||DEFAULT_SOURCE;}catch(e){}try{const parsed=parse(sourceText);catalog=parsed.levels;globalRules=parsed.rules;}catch(e){sourceText=DEFAULT_SOURCE;const parsed=parse(sourceText);catalog=parsed.levels;globalRules=parsed.rules;}
-$('apply').onclick=()=>{try{let obj=parse($('source').value);catalog=obj.levels;globalRules=obj.rules;sourceText=$('source').value;try{localStorage.setItem('ferryman_catalog_v110',sourceText);}catch(e){}$('editorOverlay').classList.add('hidden');loadLevel(0);}catch(e){$('editorStatus').textContent=e.message;}};
-$('restore').onclick=()=>{$('source').value=DEFAULT_SOURCE;$('editorStatus').textContent='Исходный текст восстановлен в редакторе. Нажмите «Применить». ';};
-$('download').onclick=()=>{const b=new Blob([$('source').value],{type:'text/plain;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='Ferryman_levels.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+$('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('undo').onclick=undo;$('reset').onclick=()=>loadLevel(levelIndex);$('galleryBtn').onclick=()=>{gallery();$('galleryOverlay').classList.remove('hidden');};$('closeGallery').onclick=()=>$('galleryOverlay').classList.add('hidden');$('prevLevel').onclick=()=>{if(levelIndex>0)loadLevel(levelIndex-1);};$('nextLevel').onclick=()=>{if(levelIndex<catalog.length-1)loadLevel(levelIndex+1);};$('solve').onclick=solve;$('stop').onclick=()=>{solverToken++;$('solve').disabled=false;$('stop').classList.add('hidden');$('solveStatus').textContent='Поиск остановлен.';};$('vfirst').onclick=()=>seek(0);$('vprev').onclick=()=>seek(viewStep-1);$('vnext').onclick=()=>{if(preview&&solution&&viewStep<solution.states.length-1)animateNextSolutionStep();};$('vlast').onclick=()=>seek(solution.states.length-1);$('vslider').oninput=e=>seek(e.target.value);$('vclose').onclick=()=>{if(playerAnimating)return;pausePlay();preview=false;previewState=null;previewCargo={};$('viewer').classList.add('hidden');render();};$('vplay').onclick=()=>{
+ if(playbackRunning){pausePlay();return;}
+ if(playerAnimating)return;
+ if(!solution)return;
+ if(viewStep>=solution.states.length-1)seek(0);
+ playbackRunning=true;
+ const epoch=++playbackEpoch;
+ $('vplay').textContent='Ⅱ Pause';
+ async function loop(){
+   if(!playbackRunning||epoch!==playbackEpoch)return;
+   const moved=await animateNextSolutionStep();
+   if(!playbackRunning||epoch!==playbackEpoch)return;
+   if(!moved||viewStep>=solution.states.length-1){pausePlay();return;}
+   playTimer=setTimeout(loop,220);
+ }
+ playTimer=setTimeout(loop,0);
+};
+// The built-in 19 levels and global rules are the sole catalog source.
+// External TXT import/export and persistent user catalog overrides are disabled.
+{const parsed=parse(DEFAULT_SOURCE);catalog=parsed.levels;globalRules=parsed.rules;}
 loadLevel(0);
 </script></body></html>
